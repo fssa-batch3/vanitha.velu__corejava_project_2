@@ -36,12 +36,12 @@ public class DietitianDAO {
 			pst.setString(1, dietitian.getDietitianName());
 			pst.setString(2, dietitian.getDietitianQualification());
 			pst.setString(3, dietitian.getDietitianAddress());
-			pst.setString(4, dietitian.getDietitianExperience());
+			pst.setInt(4, dietitian.getDietitianExperience());
 			//Execute query
 			int rows = pst.executeUpdate();
 			
 			//Return Successful or not
-			return (rows == 1);
+			return (rows == 1); 
 		}
 		
 		//Read
@@ -79,7 +79,7 @@ public class DietitianDAO {
 		
 		
 		//update medicine 
-		public boolean UpdateMedicine(Dietitian dietitian) throws SQLException {
+		public boolean UpdateDietitian1(Dietitian dietitian) throws SQLException {  
 			//Get Connection
 			Connection connection = getConnection();
 			
@@ -90,12 +90,12 @@ public class DietitianDAO {
  	        pst.setString(1, dietitian.getDietitianName());
 			pst.setString(2, dietitian.getDietitianQualification());
 			pst.setString(3, dietitian.getDietitianAddress());
-			pst.setString(4, dietitian.getDietitianExperience());
+			pst.setInt(4, dietitian.getDietitianExperience());
 			//Execute query
 			int rows = pst.executeUpdate();
 			
 			//Return Successful or not
-			return (rows == 1);
+			return (rows == 1); 
 		}
 		
 		//delete 

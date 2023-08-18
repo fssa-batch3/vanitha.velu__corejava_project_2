@@ -1,11 +1,11 @@
-package com.fssa.wellnessDiet.Validator;
+package com.fssa.wellnessDiet.validation;
 
 
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
-import com.fssa.wellnessDiet.Validator.exception.InvalidUserException;
 import com.fssa.wellnessDiet.model.User;
+import com.fssa.wellnessDiet.validation.exception.InvalidUserException;
 public class UserValidator {
 	
 	// if three conditions valid then user valid

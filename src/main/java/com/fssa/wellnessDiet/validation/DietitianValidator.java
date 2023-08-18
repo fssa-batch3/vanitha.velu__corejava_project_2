@@ -1,9 +1,9 @@
-package com.fssa.wellnessDiet.Validator;
+package com.fssa.wellnessDiet.validation;
 
 import java.util.regex.Pattern;
 
-import com.fssa.wellnessDiet.Validator.exception.InvalidDietitianException;
 import com.fssa.wellnessDiet.model.Dietitian;
+import com.fssa.wellnessDiet.validation.exception.InvalidDietitianException;
 
 public class DietitianValidator {
 	
@@ -70,9 +70,18 @@ public static boolean validateAddress(String address) {
     return match;
 }
 
-public static boolean validateExperience(String exp) {
+public static boolean validateExperience(int dietitianExperience) {
     //  experience validation
-    return true; 
-}
+ 
+	if (dietitianExperience >= 0 && dietitianExperience <= 100) {
+        System.out.println("Dietitian experience is valid."); 
+        return true;
+    } else {
+        System.out.println("Dietitian experience is not valid.");
+        return false;
+    }    
 
 }
+}
+
+

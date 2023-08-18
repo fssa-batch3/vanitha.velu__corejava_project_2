@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.fssa.wellnessDiet.Validator.exception.InvalidUserException;
 import com.fssa.wellnessDiet.dao.exception.DAOException;
-import com.fssa.wellnessDiet.model.User; 
+import com.fssa.wellnessDiet.model.User;
+import com.fssa.wellnessDiet.validation.exception.InvalidUserException; 
 
 
 public class UserDAO {
@@ -26,7 +26,7 @@ public class UserDAO {
         }
         return  connect ;
 	}
-	
+	 
 	
 	
 	public boolean insertUser(User user) throws DAOException {

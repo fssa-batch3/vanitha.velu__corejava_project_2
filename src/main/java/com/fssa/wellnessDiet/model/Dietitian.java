@@ -6,11 +6,11 @@ public class Dietitian {
 	private String DietitianName;
 	private String DietitianQualification;
 	private String DietitianAddress;
-	private String DietitianExperience;
+	private int DietitianExperience;
 	private int userID;
 	private String DietitianUrl;
 
-	public Dietitian(String dietitianName ,String dietitianAddress,String dietitianQualification,String dietitianExperience,int userID) {
+	public Dietitian(String dietitianName ,String dietitianAddress,String dietitianQualification, int dietitianExperience,int userID) {
 		this.DietitianName = dietitianName;
 		this.DietitianAddress = dietitianAddress;
 		this.DietitianQualification = dietitianQualification;
@@ -33,7 +33,7 @@ public class Dietitian {
 	public void setDietitianUrl(String dietitianUrl) {
 		DietitianUrl = dietitianUrl;
 	}
-	public Dietitian(String dietitianName ,String dietitianAddress,String dietitianQualification,String dietitianExperience) {
+	public Dietitian(String dietitianName ,String dietitianAddress,String dietitianQualification, int dietitianExperience) {
 		super();
 		this.DietitianName = dietitianName;
 		this.DietitianExperience = dietitianExperience;
@@ -74,10 +74,10 @@ public class Dietitian {
 		DietitianAddress = dietitianAddress;
 	}
 	
-	public String getDietitianExperience() {
+	public int getDietitianExperience() {
 		return DietitianExperience;
 	}
-	public void setDietitianExperience(String dietitianExperience) {
+	public void setDietitianExperience(int dietitianExperience) {
 		DietitianExperience = dietitianExperience;
 	}
 	
