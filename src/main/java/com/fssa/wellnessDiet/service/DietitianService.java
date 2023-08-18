@@ -13,13 +13,16 @@ import com.fssa.wellnessDiet.dao.*;
 import com.fssa.wellnessDiet.dao.exception.DAOException;
 
 public class DietitianService {
-	public static boolean loginUser(String email, String password) throws ServiceException {
-		UserDAO userdao =  new UserDAO();
+	public static boolean dietitianUser(String DietitianName, String DietitianAdress, String DietitianQualification, int DietitianExperience) throws ServiceException {
+		UserDAO userdao =  new UserDAO(); 
 		
 		try {
-		UserValidator.validateEmail(email);
-		UserValidator.validatePassword(password);
-		 User  user = userdao.findUserByEmail(email);
+		DietitianValidator.validateName(DietitianName);
+		DietitianValidator.validateAddress(DietitianAddress);
+		DietitianValidator.validateExperience(DietitianExperience); 
+		DietitianValidator.validateQualification(DietitianQualification);
+	
+		
 			if(user.getEmail().equals(email) ){
 				if(user.getPassword().equals(password)) {	
 					userdao.setLoggedIn(email);

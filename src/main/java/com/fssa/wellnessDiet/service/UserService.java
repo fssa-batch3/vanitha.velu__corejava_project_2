@@ -10,6 +10,30 @@ import com.fssa.wellnessDiet.dao.*;
 import com.fssa.wellnessDiet.dao.exception.DAOException;
 
 public class UserService {
+	
+	public boolean registerUser(User user) throws ServiceException {
+		UserDAO userdao =  new UserDAO();
+		
+		try {
+		
+		if(userdao.emailAlreadyExists(user.getEmail())==false) {
+			if( userdao.insertUser(user)){
+				System.out.println(user.getEmail() + " successful");
+				return true;
+			} else {
+				System.out.println("registration not successful");
+				return false;
+			}
+		} else {
+			System.out.println("Email Already Exists");
+			return false;
+		}
+		}
+		 catch (DAOException | InvalidUserException e) {
+			
+			throw new ServiceException(e);
+		}
+	}
 
 	public static boolean loginUser(String email, String password) throws ServiceException {
 		UserDAO userdao =  new UserDAO();

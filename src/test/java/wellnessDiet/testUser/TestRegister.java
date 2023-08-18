@@ -1,10 +1,12 @@
 package wellnessDiet.testUser;
+import com.fssa.wellnessDiet.service.exception.ServiceException;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.Test;
 import com.fssa.wellnessDiet.model.User;
-import com.google.protobuf.ServiceException;
+
 import com.fssa.wellnessDiet.service.*;
 
 
@@ -16,7 +18,7 @@ public class TestRegister {
 		UserService  UserService = new UserService();
 		try {
 			assertTrue(UserService.registerUser(user1));
-		} catch (ServiceException e) {
+		} catch ( ServiceException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace(); 
 			fail(); 
