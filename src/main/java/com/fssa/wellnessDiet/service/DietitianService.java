@@ -13,21 +13,21 @@ import com.fssa.wellnessDiet.dao.exception.DAOException;
 
 public class DietitianService {
 
-	public static boolean dietitianUser(String DietitianName, String DietitianAdress, String DietitianQualification,
-			String DietitianExperience) throws ServiceException {
-
-		UserDAO userdao = new UserDAO();
-
-		DietitianValidator.validateName(DietitianName);
-		DietitianValidator.validateAddress(DietitianAdress);
-		DietitianValidator.validateExperience(DietitianExperience);
-		DietitianValidator.validateQualification(DietitianQualification);
-		 
-		
-		
-		
-		 return true;
-
-	}
-
+    public boolean addDietitian(Dietitian dietitian) throws ServiceException, InvalidUserException, SQLException {
+        DietitianDAO dietitianDao = new DietitianDAO();
+        
+        try {
+            if (dietitianDao.AddDietitian(dietitian)) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (DAOException e) {
+            throw new ServiceException(e);
+        }
+    }
 }
+
+
+	
+	

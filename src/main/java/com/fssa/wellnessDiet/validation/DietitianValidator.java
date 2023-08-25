@@ -76,7 +76,7 @@ public static boolean validateExperience(int dietitianExperience) {
 	if (dietitianExperience >= 0 && dietitianExperience <= 100) {
         System.out.println("Dietitian experience is valid."); 
         return true;
-    } else {
+    } else { 
         System.out.println("Dietitian experience is not valid.");
         return false;
     }    

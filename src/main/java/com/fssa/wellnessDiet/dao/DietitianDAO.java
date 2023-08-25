@@ -20,28 +20,36 @@ public class DietitianDAO {
 
 	//connect to database
 		public Connection getConnection() throws SQLException {
-		 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/backend", "root","24@manojkumar");
+		 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/web_project", "root","24@manojkumar");
 		 return connection;
 		}
 		
 		//add new user to DB - dietitian
-		public boolean AddDietitian(Dietitian dietitian) throws SQLException { 
+		public boolean AddDietitian(Dietitian dietitian) throws SQLException, DAOException { 
 			//Get Connection
-			Connection connection = getConnection();
+			
 			
 			// Prepare SQL Statement
-			String insertQuery = "INSERT INTO dietitian (DietitianName,DietitianQualification,DietitianAddress,DietitianExperience) VALUES (?,?,?,?);";
-			PreparedStatement pst = connection.prepareStatement(insertQuery); 
+			String insertQuery = "INSERT INTO dietitians (DietitianName,image_url,DietitianEmail,DietitianAddress,DietitianQualification,DietitianExperience) VALUES (?,?,?,?,?,?);";
+			try(Connection connection = getConnection();
+			PreparedStatement pst = connection.prepareStatement(insertQuery); ){
+			
+			
 			
 			pst.setString(1, dietitian.getDietitianName());
-			pst.setString(2, dietitian.getDietitianQualification());
-			pst.setString(3, dietitian.getDietitianAddress());
-			pst.setInt(4, dietitian.getDietitianExperience());
+			pst.setString(2, dietitian.getDietitianUrl());
+			pst.setString(3, dietitian.getDietitianEmail());
+			pst.setString(4, dietitian.getDietitianQualification());
+			pst.setString(5, dietitian.getDietitianAddress());
+			pst.setInt(6, dietitian.getDietitianExperience());
 			//Execute query
 			int rows = pst.executeUpdate();
 			
 			//Return Successful or not
-			return (rows == 1); 
+			return (rows == 1); }
+		catch(SQLException e) {
+			throw new DAOException(e);
+		}
 		}
 		
 		//Read
@@ -49,7 +57,7 @@ public class DietitianDAO {
 			//Get Connection
 
 
-			String insertQuery = "SELECT * FROM  dietitianuser WHERE id = ?";
+			String insertQuery = "SELECT * FROM  dietitian WHERE id = ?";
 			UserDAO  userDao = new UserDAO();
 			try (
 					

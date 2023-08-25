@@ -10,7 +10,7 @@ import com.fssa.wellnessDiet.model.User;
 import com.fssa.wellnessDiet.service.*;
 
 
-public class TestRegister {
+public class Register {
 	Throwable exception;
 	@Test
 	  void testRegisterSuccess() {
