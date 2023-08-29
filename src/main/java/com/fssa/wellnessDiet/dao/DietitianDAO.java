@@ -1,7 +1,5 @@
 package com.fssa.wellnessDiet.dao;
 
-import com.fssa.wellnessDiet.model.*;
-import com.fssa.wellnessDiet.dao.*;
 import com.fssa.wellnessDiet.dao.exception.DAOException;
 
 import java.sql.Connection;
@@ -9,8 +7,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import java.util.*;
 
 import com.fssa.wellnessDiet.model.Dietitian;
 

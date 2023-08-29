@@ -10,34 +10,25 @@ import com.fssa.wellnessDiet.dao.exception.DAOException;
 import com.fssa.wellnessDiet.model.User;
 import com.fssa.wellnessDiet.validation.exception.InvalidUserException;
 
-import io.github.cdimascio.dotenv.Dotenv; 
 
 
 public class UserDAO {
-	
+	 
 	public Connection getConnection() throws SQLException{
 		
 		String dbUrl;
 		String dbUser;
 		String dbPassword;
-
-		if (System.getenv("CI") != null) {
-			dbUrl = System.getenv("DB_URL");
-			dbUser = System.getenv("DB_USER");
-			dbPassword = System.getenv("DB_PASSWORD");
-		} else {
-			Dotenv env = Dotenv.load();
-			dbUrl = env.get("DB_URL");
-			dbUser = env.get("DB_USER");
-			dbPassword = env.get("DB_PASSWORD");
-		}
 		
+		dbUrl = System.getenv("DB_URL");
+		dbUser = System.getenv("DB_USER");
+		dbPassword = System.getenv("DB_PASSWORD");
+
+
 		Connection connect = null ;
-        String url = "jdbc:mysql://localhost/project";
-        String userName = "root";
-        String passWord = "24@manojkumar";
+
         try {
-            connect = DriverManager.getConnection(url,userName, passWord); 
+            connect = DriverManager.getConnection(dbUrl,dbUser, dbPassword); 
         } catch (Exception e) {
             e.printStackTrace();
             throw new SQLException("Unable to connect to the database");

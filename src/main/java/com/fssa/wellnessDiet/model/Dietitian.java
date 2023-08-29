@@ -5,10 +5,10 @@ public class Dietitian {
 	private String DietitianQualification;
 	private String DietitianAddress;
 	private int DietitianExperience;
-	private int userID;
+	private int UserID;
 	private String DietitianUrl;
 	private String DietitianEmail;
-	private String dietitianEmail;
+
 
 	public Dietitian(String dietitianName, String ImageURL, String dietitianEmail, String dietitianAddress,
 			String dietitianQualification, int dietitianExperience) {
@@ -24,7 +24,7 @@ public class Dietitian {
 
 	// delete
 	public Dietitian(int userID) {
-		this.userID = userID;
+		this.UserID = userID;
 	}
 
 //	public void Dietitian(int userID,String dietitianName , int dietitianExperience,String dietitianQualification,String dietitianAddress) {
@@ -50,17 +50,17 @@ public class Dietitian {
 	public String toString() {
 		return "Dietitian [DietitianName=" + DietitianName + ", DietitianQualification=" + DietitianQualification
 				+ ", DietitianExperience=" + DietitianExperience + ", DietitianAddress=" + DietitianAddress
-				+ ", userID=" + userID + ", getUserID()=" + getUserID() + ", getDietitianQualification()="
+				+ ", userID=" + UserID + ", getUserID()=" + getUserID() + ", getDietitianQualification()="
 				+ getDietitianQualification() + ", getDietitianName()=" + getDietitianName() + ", getClass()="
 				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
 
 	public int getUserID() {
-		return userID;
+		return UserID;
 	}
 
 	public void setUserID(int userID) {
-		this.userID = userID;
+		this.UserID = userID;
 	}
 
 	public String getDietitianQualification() {

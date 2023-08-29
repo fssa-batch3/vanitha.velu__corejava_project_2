@@ -1,7 +1,5 @@
 package com.fssa.wellnessDiet.service;
 
-import java.sql.SQLException;
-
 import com.fssa.wellnessDiet.model.User;
 import com.fssa.wellnessDiet.service.exception.ServiceException;
 import com.fssa.wellnessDiet.validation.UserValidator;
@@ -62,4 +60,5 @@ public class UserService {
 			throw new ServiceException(e);
 		}
 	}
+
 }
