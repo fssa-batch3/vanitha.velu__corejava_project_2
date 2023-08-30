@@ -23,7 +23,7 @@ public class Login {
 
 	@Test
 
-	void testInvalidloginSuccess() {
+	void testInvalidlogin() {  
 		try {
 			assertFalse(UserService.loginUser("mom@gmail.com", "vani@123"));
 		} catch (ServiceException e) {

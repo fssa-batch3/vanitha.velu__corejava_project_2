@@ -21,12 +21,26 @@ public class Dietitian {
 		this.DietitianExperience = dietitianExperience;
 
 	}
+	public Dietitian(int UserID,String dietitianName, String ImageURL, String dietitianEmail, String dietitianAddress,
+			String dietitianQualification, int dietitianExperience) {
+        this.UserID=UserID;
+		this.DietitianUrl = ImageURL;
+		this.DietitianName = dietitianName;
+		this.DietitianQualification = dietitianQualification;
+		this.DietitianAddress = dietitianAddress;
+		this.DietitianEmail = dietitianEmail;
+		this.DietitianExperience = dietitianExperience;
+
+	}
 
 	// delete
 	public Dietitian(int userID) {
 		this.UserID = userID;
 	}
-
+	public Dietitian() {
+		
+	}
+     
 //	public void Dietitian(int userID,String dietitianName , int dietitianExperience,String dietitianQualification,String dietitianAddress) {
 //	
 //		DietitianUrl = getDietitianUrl();
@@ -97,7 +111,12 @@ public class Dietitian {
 
 	public String getDietitianEmail() {
 
-		return DietitianEmail;
+		return DietitianEmail; 
 	}
+	
+	public void setDietitianEmail(String dietitianEmail) {
+		DietitianEmail = dietitianEmail;
+	}
+
 
 }

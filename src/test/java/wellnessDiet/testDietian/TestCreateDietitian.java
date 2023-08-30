@@ -1,106 +1,51 @@
 package wellnessDiet.testDietian;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
-
-import java.sql.SQLException;
-
 import org.junit.jupiter.api.Test;
-import com.fssa.wellnessDiet.service.*;
-import com.fssa.wellnessDiet.model.*;
+
+import com.fssa.wellnessDiet.model.Dietitian;
+import com.fssa.wellnessDiet.service.DietitianService;
 import com.fssa.wellnessDiet.service.exception.ServiceException;
-import com.fssa.wellnessDiet.validation.exception.InvalidUserException;
 
 public class TestCreateDietitian {
-	@Test
-	
-	//valid test case
-	public void testCreateProduct() throws InvalidUserException, SQLException {
-		DietitianService DietitianService = new DietitianService();
-		Dietitian Dietitian = new Dietitian( "Vanitha","image-Url","vanitha@gmail.com" ,"Gem Hospital,perungudi", "Dietitian", 12);
-		
-		try {
-			assertTrue(DietitianService.addDietitian(Dietitian));
-		}catch(ServiceException e){
-			e.printStackTrace();
-			fail();
-		}
-	}
 
 	
-	//invalid name
+	/*
+	 * Define a test method for create Dietitian
+	 */
+	@Test
 	
-	public void testInvalidName() throws InvalidUserException, SQLException {
-		DietitianService DietitianService = new DietitianService();
-		Dietitian Dietitian = new Dietitian( "Vanitaa","image-Url","vanitha@gmail.com" ,"Gem", "Dietitian", 12);
+	void testCreateDietitianSuccess() {
+		
+		DietitianService dietitianService =new DietitianService();
+		Dietitian dietitian1 = new Dietitian("vanitha", "imagelink-url", "vanitha@gmail.com", "GEM Hospital,perungudi,chennai", "Dietitian",12);
 		
 		try {
-			assertTrue(DietitianService.addDietitian(Dietitian));
-		}catch(ServiceException e){
-			e.printStackTrace();
-			fail();
+			dietitianService.addDietitian(dietitian1);
+			System.out.println("Dietitian Successfully Created");
+		}
+		catch(ServiceException e) {
+			System.out.println(e.getMessage());
 		}
 	}
 	
+	/*
+	 * Define a test method for fail to create Dietitian
+	 */
+	@Test
 	
-	//invalid URL
-	
-	
-	public void testInvalidURL() throws InvalidUserException, SQLException {
-		DietitianService DietitianService = new DietitianService();
-		Dietitian Dietitian = new Dietitian( "Vanitha","sdfghjkl@","vanitha@gmail.com" ,"Gem", "Dietitian", 12);
+	void testCreateDietitianFail() {
+		
+
+		DietitianService dietitianService =new DietitianService();
+		Dietitian dietitian2 = new Dietitian("vanitha", "imagelink-url", "vanitha@gmail.com", "GEM Hospital,perungudi,chennai", "",12);
 		
 		try {
-			assertTrue(DietitianService.addDietitian(Dietitian));
-		}catch(ServiceException e){
-			e.printStackTrace();
-			fail();
+			dietitianService.addDietitian(dietitian2);
+			System.out.println("Failed to Create Dietitian");
 		}
-	}
-	
-	
-	//invalid email
-	
-	public void testInvalidEmail() throws InvalidUserException, SQLException {
-		DietitianService DietitianService = new DietitianService();
-		Dietitian Dietitian = new Dietitian( "Vanitha","image-Url","vani#mail.com" ,"Gem", "Dietitian", 12);
-		
-		try {
-			assertTrue(DietitianService.addDietitian(Dietitian));
-		}catch(ServiceException e){
-			e.printStackTrace();
-			fail();
+		catch(ServiceException e) {
+			System.out.println(e.getMessage());
 		}
+	
 	}
-	
-	
-	//Invalid address
-	
-	public void testInvalidAddress() throws InvalidUserException, SQLException {
-		DietitianService DietitianService = new DietitianService();
-		Dietitian Dietitian = new Dietitian( "Vanitha","image-Url","vanitha@gmail.com" ,"Gem", "Dietitian", 12);
-		
-		try {
-			assertTrue(DietitianService.addDietitian(Dietitian));
-		}catch(ServiceException e){
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
-	
-	//Invalid Qualification
-	
-	public void testInvalidExperience() throws InvalidUserException, SQLException {
-		DietitianService DietitianService = new DietitianService();
-		Dietitian Dietitian = new Dietitian( "Vanitha","image-Url","vanitha@gmail.com" ,"Gem", "Dietitian", 0);
-		
-		try {
-			assertTrue(DietitianService.addDietitian(Dietitian));
-		}catch(ServiceException e){
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
 }

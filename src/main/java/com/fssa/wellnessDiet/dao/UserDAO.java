@@ -20,10 +20,14 @@ public class UserDAO {
 		String dbUser;
 		String dbPassword;
 		
-		dbUrl = System.getenv("DB_URL");
-		dbUser = System.getenv("DB_USER");
-		dbPassword = System.getenv("DB_PASSWORD");
-
+//		dbUrl = System.getenv("DB_URL");
+//		dbUser = System.getenv("DB_USER");
+//		dbPassword = System.getenv("DB_PASSWORD");
+ 
+		dbUrl = "jdbc:mysql://localhost/web_project";
+		dbUser = "root";
+		dbPassword = "24@manojkumar";
+		
 
 		Connection connect = null ;
 
