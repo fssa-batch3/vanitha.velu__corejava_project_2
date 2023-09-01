@@ -72,7 +72,7 @@ public class DietitianDAO {
 		
 	}
 	// update medicine
-	public static boolean UpdateDietitian1(Dietitian dietitian) throws DAOException {
+	public static boolean UpdateDietitian(Dietitian dietitian) throws DAOException {
 		// Get Connection
 
 		// Prepare SQL Statement
