@@ -40,7 +40,7 @@ public static boolean validateName(String name) {
 public static boolean validateQualification(String qualification) {
     boolean match = false;
     try {
-        String regex = "^[A-Za-z0-9\\s]{3,50}$";
+        String regex = "^[A-Za-z0-9\\s]{8,50}$";
         match = Pattern.matches(regex, qualification);
         if (match) {
             System.out.println("The qualification is valid.");

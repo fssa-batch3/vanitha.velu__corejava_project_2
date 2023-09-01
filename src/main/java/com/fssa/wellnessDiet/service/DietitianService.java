@@ -25,6 +25,7 @@ public class DietitianService {
 		}
 	}
 
+	
 	@SuppressWarnings("static-access")
 	public static boolean updateDietitian(Dietitian dietitian) throws ServiceException {
 		DietitianDAO dietitianDAO = new DietitianDAO();

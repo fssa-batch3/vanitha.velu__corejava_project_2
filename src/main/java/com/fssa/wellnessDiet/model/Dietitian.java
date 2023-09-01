@@ -33,18 +33,14 @@ public class Dietitian {
 
 	}
 
-	// delete
+
 	public Dietitian(int userID) {
 		this.UserID = userID;
 	}
 	public Dietitian() {
 		
 	}
-     
-//	public void Dietitian(int userID,String dietitianName , int dietitianExperience,String dietitianQualification,String dietitianAddress) {
-//	
-//		DietitianUrl = getDietitianUrl();
-//	}
+
 	public String getDietitianUrl() {
 		return DietitianUrl;
 	}
@@ -53,13 +49,7 @@ public class Dietitian {
 		DietitianUrl = dietitianUrl;
 	}
 
-//	public Dietitian(String dietitianName ,String dietitianAddress,String dietitianQualification, int dietitianExperience) {
-//		super();
-//		this.DietitianName = dietitianName;
-//		this.DietitianExperience = dietitianExperience;
-//		this.DietitianAddress = dietitianAddress;
-//		this.DietitianQualification = dietitianQualification;
-//	}
+
 	@Override
 	public String toString() {
 		return "Dietitian [DietitianName=" + DietitianName + ", DietitianQualification=" + DietitianQualification

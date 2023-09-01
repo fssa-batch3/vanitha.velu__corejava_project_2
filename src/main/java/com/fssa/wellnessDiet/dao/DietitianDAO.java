@@ -30,20 +30,7 @@ public class DietitianDAO {
 		return connection;
 	}
 
-	public static List<Dietitian> extractDataFromResultSet(ResultSet resultData) throws SQLException {
-		ArrayList<Dietitian> dietitianList = new ArrayList<>();
-		while (resultData.next()) {
-			Dietitian dietitian = new Dietitian();
-			dietitian.setDietitianName(resultData.getString("DietitianName"));
-			dietitian.setDietitianUrl(resultData.getString("image_url")); 
-			dietitian.setDietitianEmail(resultData.getString("DietitianEmail"));
-			dietitian.setDietitianAddress(resultData.getString("DietitianAddress"));
-			dietitian.setDietitianQualification(resultData.getString("DietitianQualification"));
-			dietitian.setDietitianExperience(resultData.getInt("DietitianExperience"));
-			dietitianList.add(dietitian);
-		}
-		return dietitianList;
-	}
+	
 
 	// add new user to DB - dietitian
 	public boolean AddDietitian(Dietitian dietitian) throws DAOException {
@@ -71,23 +58,19 @@ public class DietitianDAO {
 	}
 
 	// Read
-	public List<Dietitian> ReadDietitian(Dietitian dietitian) throws DAOException {
+	public List<Dietitian> ReadDietitian() throws DAOException {
 		// Get Connection
 
 		String insertQuery = "SELECT * FROM  dietitians WHERE DietitianEmail = ?";
 		UserDAO userDao = new UserDAO();
-		try (
-
-				Connection connection = userDao.getConnection();
-				PreparedStatement pst = connection.prepareStatement(insertQuery)) {
-			pst.setString(1, dietitian.getDietitianEmail());
-			ResultSet rs = pst.executeQuery();
-			return extractDataFromResultSet(rs);
-		} catch (SQLException e) {
-			throw new DAOException(e);
-		}
+		
+		List<Dietitian> dietitian = new ArrayList<>();
+		
+		Connection connection = getConnection();
+		
+		
+		
 	}
-
 	// update medicine
 	public static boolean UpdateDietitian1(Dietitian dietitian) throws DAOException {
 		// Get Connection
