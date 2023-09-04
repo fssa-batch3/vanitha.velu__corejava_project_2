@@ -58,7 +58,8 @@ public class DietitianDAO {
 	}
 
 	// Read
-	public List<Dietitian> ReadDietitian() throws DAOException {
+	@SuppressWarnings("unused")
+	public List<Dietitian> ReadDietitian(Dietitian dietitian2) throws DAOException {
 		// Get Connection
 
 		String insertQuery = "SELECT * FROM  dietitians WHERE DietitianEmail = ?";
@@ -67,6 +68,7 @@ public class DietitianDAO {
 		List<Dietitian> dietitian = new ArrayList<>();
 		
 		Connection connection = getConnection();
+		return dietitian; 
 		
 		
 		
@@ -118,7 +120,7 @@ public class DietitianDAO {
 			// Return Successful or not
 			return (rows == 1);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		

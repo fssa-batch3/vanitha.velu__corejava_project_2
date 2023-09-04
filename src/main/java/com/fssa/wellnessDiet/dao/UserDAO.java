@@ -90,7 +90,7 @@ public class UserDAO {
 		ResultSet rs = pst.executeQuery();
 		 return  rs.next();
 		} catch (SQLException e) {
-			throw new InvalidUserException("Invalid in Email Already Exists");
+			throw new InvalidUserException("Invalid in Email Already Exists"); 
 			
 		}
 	}

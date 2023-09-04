@@ -31,7 +31,7 @@ public class DietitianService {
 		DietitianDAO dietitianDAO = new DietitianDAO();
 
 		try {
-			if (dietitianDAO.UpdateDietitian1(dietitian)) {
+			if (dietitianDAO.UpdateDietitian(dietitian)) {
 				System.out.println("Successfully updated");
 				return true;
 			} else {

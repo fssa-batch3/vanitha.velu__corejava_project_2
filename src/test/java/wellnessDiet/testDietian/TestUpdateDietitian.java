@@ -21,7 +21,7 @@ public class TestUpdateDietitian {
 	    	Dietitian dietitianService1 = new Dietitian(2,"vanitha", "imagelink-url", "vanitha123@gmail.com", "GEM Hospital,perungudi,chennai", "Dietitian",12); 
 	    	//assertTrue(DietitianDAO.(dietitianService1));
 			try {
-				assertTrue(DietitianDAO.UpdateDietitian1(dietitianService1));
+				assertTrue(DietitianDAO.UpdateDietitian(dietitianService1));
 			} catch (DAOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
