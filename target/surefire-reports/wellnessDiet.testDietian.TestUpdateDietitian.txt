@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------
+Test set: wellnessDiet.testDietian.TestUpdateDietitian
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.543 sec <<< FAILURE!
+wellnessDiet.testDietian.TestUpdateDietitian.testValidUpdate()  Time elapsed: 0.079 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:180)
+	at wellnessDiet.testDietian.TestUpdateDietitian.testValidUpdate(TestUpdateDietitian.java:24)
+

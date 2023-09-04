@@ -1,0 +1,12 @@
+com\fssa\wellnessDiet\model\Dietitian.class
+com\fssa\wellnessDiet\model\User.class
+com\fssa\wellnessDiet\validation\exception\InvalidDietitianException.class
+com\fssa\wellnessDiet\service\DietitianService.class
+com\fssa\wellnessDiet\validation\exception\InvalidUserException.class
+com\fssa\wellnessDiet\validation\DietitianValidator.class
+com\fssa\wellnessDiet\dao\UserDAO.class
+com\fssa\wellnessDiet\service\exception\ServiceException.class
+com\fssa\wellnessDiet\validation\UserValidator.class
+com\fssa\wellnessDiet\dao\exception\DAOException.class
+com\fssa\wellnessDiet\dao\DietitianDAO.class
+com\fssa\wellnessDiet\service\UserService.class
