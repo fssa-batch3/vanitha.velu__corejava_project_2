@@ -11,15 +11,15 @@ import com.fssa.wellnessDiet.service.exception.*;
 
 public class TestDeleteDietitian {
 	
-	@SuppressWarnings("static-access")
+	@SuppressWarnings("static-access") 
 	@Test
 	
 	void deleteDietitianSuccess() {
 		DietitianService dietitianService =new DietitianService();  
 		
 		try {
-			assertTrue(dietitianService.deleteDietitian(new Dietitian(7)));  
-		}
+			assertTrue(dietitianService.deleteDietitian(new Dietitian(5)));  
+		}  
 		catch(ServiceException e) {
 			System.err.println(e.getMessage());
 		}
@@ -35,7 +35,7 @@ public class TestDeleteDietitian {
 			assertFalse(dietitianService.deleteDietitian(new Dietitian( )));
 		}
 		catch(ServiceException e) {
-			System.err.println(e.getMessage());
+			System.err.println(e.getMessage()); 
 		}
 	}
 }

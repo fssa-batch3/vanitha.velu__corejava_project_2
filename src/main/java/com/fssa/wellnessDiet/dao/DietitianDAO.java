@@ -40,18 +40,18 @@ public class DietitianDAO {
 		// Prepare SQL Statement
 		String insertQuery = "INSERT INTO dietitians (DietitianName,image_url,DietitianAddress,DietitianQualification,DietitianExperience) VALUES (?,?,?,?,?);";
 		try (Connection connection = getConnection();
-				PreparedStatement pst = connection.prepareStatement(insertQuery);) {
-			System.out.print(dietitian.getDietitianName());
+				
+		    PreparedStatement pst = connection.prepareStatement(insertQuery);) { 
 			pst.setString(1, dietitian.getDietitianName());
 			pst.setString(2, dietitian.getDietitianUrl());
 			pst.setString(3, dietitian.getDietitianAddress());
 			pst.setString(4, dietitian.getDietitianQualification());
 			pst.setInt(5, dietitian.getDietitianExperience());
-			// Execute query
+			// Execute update
 			int rows = pst.executeUpdate();
 
 			// Return Successful or not
-			return (rows == 1);
+			return (rows == 1); 
 		} catch (SQLException e) {
 			throw new DAOException(e);
 		}
@@ -94,7 +94,7 @@ public class DietitianDAO {
 		
 
 			// Execute query
-			int rows = pst.executeUpdate();
+			int rows = pst.executeUpdate(); 
 
 			// Return Successful or not
 			return rows > 0;

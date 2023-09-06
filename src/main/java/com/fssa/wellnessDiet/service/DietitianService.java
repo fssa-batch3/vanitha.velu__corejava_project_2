@@ -20,7 +20,7 @@ public class DietitianService {
 			} else {
 				return false;
 			}
-		} catch (DAOException e) {
+		} catch (DAOException e) { 
 			throw new ServiceException(e);  
 		}
 	}
