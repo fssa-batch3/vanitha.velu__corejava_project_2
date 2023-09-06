@@ -83,13 +83,13 @@ public class DietitianDAO {
 			Connection connection = getConnection();
 			PreparedStatement pst = connection.prepareStatement(insertQuery);
 
-			pst.setInt(1, dietitian.getUserID());
-			pst.setString(2, dietitian.getDietitianName()); 
-			pst.setString(3, dietitian.getDietitianUrl());
-			pst.setString(4, dietitian.getDietitianAddress());
-			pst.setString(5, dietitian.getDietitianQualification());
-			pst.setInt(6, dietitian.getDietitianExperience());
-
+			
+			pst.setString(1, dietitian.getDietitianName()); 
+			pst.setString(2, dietitian.getDietitianUrl());
+			pst.setString(3, dietitian.getDietitianAddress());
+			pst.setString(4, dietitian.getDietitianQualification());
+			pst.setInt(5, dietitian.getDietitianExperience());
+			pst.setInt(6, dietitian.getUserID());
 	
 		
 

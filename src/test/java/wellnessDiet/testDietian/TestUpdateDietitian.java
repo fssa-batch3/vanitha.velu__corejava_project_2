@@ -18,11 +18,12 @@ public class TestUpdateDietitian {
 	
 	 @Test
 	    public void testValidUpdate() {
-	    	Dietitian dietitianService1 = new Dietitian(2,"vanitha", "imagelink-url", "vanitha123@gmail.com", "GEM Hospital,perungudi,chennai", "Dietitian",12); 
+	    	Dietitian dietitianService1 = new Dietitian(5,"DtKishore", "test",  "Thiruvengadam Nagar Perungudi Chennai Tamil Nadu 600096", "Dietitian",12); 
 	    	//assertTrue(DietitianDAO.(dietitianService1));
 			try {
-				assertTrue(DietitianDAO.UpdateDietitian(dietitianService1));
+				assertTrue(DietitianDAO.UpdateDietitian(dietitianService1)); 
 			} catch (DAOException e) {
+				
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -48,7 +49,7 @@ public class TestUpdateDietitian {
 	    
 	    @Test
 	    public void testInavlidQualificationName() { 
-	        Dietitian dietitianService1 = new  Dietitian("vanitha", "imagelink-url",  "GEM Hospital,perungudi,chennai", "Developer",12);
+	        Dietitian dietitianService1 = new  Dietitian("Dt.Kishore", "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZG9jdG9yfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60",  "Thiruvengadam Nagar, Perungudi, Chennai, Tamil Nadu 600096", "Dietitian",12);
 	        try {
 	    		assertFalse(DietitianService.updateDietitian(dietitianService1));
 	    	}catch(ServiceException e){

@@ -9,7 +9,7 @@ public class Dietitian {
 	private String DietitianUrl;
 
 
-	public Dietitian(int UserID,String dietitianName, String ImageURL, String dietitianEmail, String dietitianAddress,
+	public Dietitian(int UserID,String dietitianName, String ImageURL,String dietitianAddress,
 			String dietitianQualification, int dietitianExperience) {
         this.UserID=UserID;
 		this.DietitianUrl = ImageURL;
