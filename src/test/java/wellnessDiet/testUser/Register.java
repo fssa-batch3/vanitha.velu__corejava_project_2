@@ -1,29 +1,36 @@
 package wellnessDiet.testUser;
 import com.fssa.wellnessDiet.service.exception.ServiceException;
+import com.fssa.wellnessDiet.validation.exception.InvalidUserException;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
+
+import java.sql.SQLException;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import com.fssa.wellnessDiet.model.User;
 
 import com.fssa.wellnessDiet.service.*;
 
-
+ 
 public class Register {
-	Throwable exception;
+	Throwable exception; 
 	@Test
-	  void testRegisterSuccess() {
-		User user1 = new User("vanitha","vanitha@gmail.com","vanitha@123");
+	  void testRegisterSuccess() { 
+		User user1 = new User("sababa","sabma@gmail.com","vanith@123");
 		UserService  UserService = new UserService();
-		try {
+		try { 
 			assertTrue(UserService.registerUser(user1));
 		} catch ( ServiceException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace(); 
 			fail(); 
 		}
-	}
+	} 
+	
+	
 	
 	@Test
 	
@@ -68,7 +75,9 @@ public class Register {
 		} catch (ServiceException e) {
 			e.printStackTrace();
 
-		}
+		} 
 }
+	
+
 	
 }

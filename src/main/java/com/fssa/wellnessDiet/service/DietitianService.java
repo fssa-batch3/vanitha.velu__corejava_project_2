@@ -15,13 +15,13 @@ public class DietitianService {
 		DietitianDAO dietitianDao = new DietitianDAO();
 
 		try {
-			if (dietitianDao.AddDietitian(dietitian)) {
+			if (dietitianDao.AddDietitian(dietitian)) { 
 				return true;
 			} else {
 				return false;
 			}
 		} catch (DAOException e) {
-			throw new ServiceException(e);
+			throw new ServiceException(e);  
 		}
 	}
 
@@ -79,6 +79,21 @@ public class DietitianService {
 			throw new ServiceException(e);
 		}
 		return dietitians;
+	}
+	
+	
+	public List<Dietitian> getAllDietitian() throws ServiceException {
+
+		DietitianDAO dietitianDAO = new DietitianDAO();
+		List<Dietitian> dietitian = null;
+		try {
+			dietitian = dietitianDAO.getAllDietitians();
+			
+		} catch (DAOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return dietitian;
 	}
 
 }

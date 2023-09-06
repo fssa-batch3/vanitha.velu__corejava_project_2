@@ -7,28 +7,15 @@ public class Dietitian {
 	private int DietitianExperience;
 	private int UserID;
 	private String DietitianUrl;
-	private String DietitianEmail;
 
 
-	public Dietitian(String dietitianName, String ImageURL, String dietitianEmail, String dietitianAddress,
-			String dietitianQualification, int dietitianExperience) {
-
-		this.DietitianUrl = ImageURL;
-		this.DietitianName = dietitianName;
-		this.DietitianQualification = dietitianQualification;
-		this.DietitianAddress = dietitianAddress;
-		this.DietitianEmail = dietitianEmail;
-		this.DietitianExperience = dietitianExperience;
-
-	}
 	public Dietitian(int UserID,String dietitianName, String ImageURL, String dietitianEmail, String dietitianAddress,
 			String dietitianQualification, int dietitianExperience) {
         this.UserID=UserID;
 		this.DietitianUrl = ImageURL;
 		this.DietitianName = dietitianName;
 		this.DietitianQualification = dietitianQualification;
-		this.DietitianAddress = dietitianAddress;
-		this.DietitianEmail = dietitianEmail;
+		this.DietitianAddress = dietitianAddress; 
 		this.DietitianExperience = dietitianExperience;
 
 	}
@@ -41,6 +28,14 @@ public class Dietitian {
 		
 	}
 
+	public Dietitian(String imageUrl, String detitianName, String qualification, String address, int experience) {
+		
+		this.DietitianUrl = imageUrl; 
+		this.DietitianName = detitianName;
+		this.DietitianQualification = qualification;
+		this.DietitianAddress = address; 
+		this.DietitianExperience = experience;
+	}
 	public String getDietitianUrl() {
 		return DietitianUrl;
 	}
@@ -99,14 +94,6 @@ public class Dietitian {
 		DietitianExperience = dietitianExperience;
 	}
 
-	public String getDietitianEmail() {
-
-		return DietitianEmail; 
-	}
-	
-	public void setDietitianEmail(String dietitianEmail) {
-		DietitianEmail = dietitianEmail;
-	}
 
 
 }

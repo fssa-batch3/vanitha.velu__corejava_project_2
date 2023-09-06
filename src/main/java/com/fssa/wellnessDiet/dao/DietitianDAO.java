@@ -10,43 +10,43 @@ import java.util.List;
 
 import com.fssa.wellnessDiet.dao.exception.DAOException;
 import com.fssa.wellnessDiet.model.Dietitian;
+import com.fssa.wellnessDiet.model.User;
+import com.fssa.wellnessDiet.service.exception.ServiceException;
 
 public class DietitianDAO {
 
-	@SuppressWarnings("unused")
-	private static final Object UserId = null;
+	
+
 
 	// connect to database
 	public static Connection getConnection() throws DAOException {
 		Connection connection = null;
 
 		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/web_project", "root",
 					"24@manojkumar");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (SQLException | ClassNotFoundException e) {
+		
 			e.printStackTrace();
-		}
+		} 
 		return connection;
 	}
-
-	
 
 	// add new user to DB - dietitian
 	public boolean AddDietitian(Dietitian dietitian) throws DAOException {
 		// Get Connection
 
 		// Prepare SQL Statement
-		String insertQuery = "INSERT INTO dietitians (DietitianName,image_url,DietitianEmail,DietitianAddress,DietitianQualification,DietitianExperience) VALUES (?,?,?,?,?,?);";
+		String insertQuery = "INSERT INTO dietitians (DietitianName,image_url,DietitianAddress,DietitianQualification,DietitianExperience) VALUES (?,?,?,?,?);";
 		try (Connection connection = getConnection();
 				PreparedStatement pst = connection.prepareStatement(insertQuery);) {
-
+			System.out.print(dietitian.getDietitianName());
 			pst.setString(1, dietitian.getDietitianName());
 			pst.setString(2, dietitian.getDietitianUrl());
-			pst.setString(3, dietitian.getDietitianEmail());
+			pst.setString(3, dietitian.getDietitianAddress());
 			pst.setString(4, dietitian.getDietitianQualification());
-			pst.setString(5, dietitian.getDietitianAddress());
-			pst.setInt(6, dietitian.getDietitianExperience());
+			pst.setInt(5, dietitian.getDietitianExperience());
 			// Execute query
 			int rows = pst.executeUpdate();
 
@@ -64,32 +64,34 @@ public class DietitianDAO {
 
 		String insertQuery = "SELECT * FROM  dietitians WHERE DietitianEmail = ?";
 		UserDAO userDao = new UserDAO();
-		
+
 		List<Dietitian> dietitian = new ArrayList<>();
-		
+
 		Connection connection = getConnection();
-		return dietitian; 
-		
-		
-		
+		return dietitian;
+
 	}
-	// update medicine
+
+
 	public static boolean UpdateDietitian(Dietitian dietitian) throws DAOException {
 		// Get Connection
 
 		// Prepare SQL Statement
-		String insertQuery = "UPDATE dietitians SET DietitianName=? , DietitianQualification=?,image_url=?,DietitianEmail=? , DietitianExperience=?,DietitianAddress=? WHERE dietitian_id=?;";
+		String insertQuery = "UPDATE dietitians SET DietitianName=? ,image_url=?,DietitianAddress=?, DietitianQualification=?, DietitianExperience=? WHERE dietitian_id=?;";
 
 		try {
 			Connection connection = getConnection();
 			PreparedStatement pst = connection.prepareStatement(insertQuery);
-			pst.setString(1, dietitian.getDietitianName());
-			pst.setString(2, dietitian.getDietitianQualification());
+
+			pst.setInt(1, dietitian.getUserID());
+			pst.setString(2, dietitian.getDietitianName()); 
 			pst.setString(3, dietitian.getDietitianUrl());
-			pst.setString(4, dietitian.getDietitianEmail());
-			pst.setInt(5, dietitian.getDietitianExperience());
-			pst.setString(6, dietitian.getDietitianAddress());
-			pst.setInt(7, dietitian.getUserID());
+			pst.setString(4, dietitian.getDietitianAddress());
+			pst.setString(5, dietitian.getDietitianQualification());
+			pst.setInt(6, dietitian.getDietitianExperience());
+
+	
+		
 
 			// Execute query
 			int rows = pst.executeUpdate();
@@ -120,11 +122,47 @@ public class DietitianDAO {
 			// Return Successful or not
 			return (rows == 1);
 		} catch (SQLException e) {
-			
+
 			e.printStackTrace();
 		}
-		
+
 		return false;
+
+	}
+
+	
+
+	public List<Dietitian> getAllDietitians() throws DAOException {  
+		// Create an empty list to store products
+		List<Dietitian> dietitianList = new ArrayList<>();
+
+		final String QUERY = "SELECT dietitian_id, DietitianName,image_url,DietitianAddress, DietitianQualification,DietitianExperience FROM dietitians";
+		// Start a try block with a prepared statement for selecting all products
+		try (Connection connection = getConnection();
+				PreparedStatement pmt = connection.prepareStatement(QUERY);
+				ResultSet rs = pmt.executeQuery()) {
+			// Iterate through the result set and extract product information
+			while (rs.next()) {
+				String DietitianName = rs.getString("DietitianName");
+				String image_url = rs.getString("image_url"); 
+				String DietitianAddress = rs.getString("DietitianAddress");
+				String DietitianQualification = rs.getString("DietitianQualification"); 
+				int  Experience = rs.getInt("DietitianExperience");  
+				
+		
+//				Dietitian dietitian = new Dietitian(); 
+
+				dietitianList.add(new Dietitian(image_url,DietitianName,DietitianQualification,DietitianAddress,Experience));   
+				System.out.println(dietitianList.toString());
+
+			}
+			// Return the list of products
+			return dietitianList;
+
+		} catch (SQLException e) {
+			throw new DAOException("Error in getting All dietitians");
+					
+		}
 
 	}
 

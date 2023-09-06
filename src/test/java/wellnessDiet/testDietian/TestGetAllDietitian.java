@@ -15,7 +15,7 @@ import com.fssa.wellnessDiet.model.Dietitian;
 import com.fssa.wellnessDiet.service.DietitianService;
 import com.fssa.wellnessDiet.service.exception.ServiceException;
 
-public class TestGetAllDietitian {
+public class TestGetAllDietitian { 
 
 	@Test
 	
@@ -27,13 +27,13 @@ public class TestGetAllDietitian {
 		
 		try {
 					
-			List<Dietitian> list = dietitianDAO.ReadDietitian(new Dietitian("vanitha", "imagelink-url", "vanitha@gmail.com", "GEM Hospital,perungudi,chennai", "Developer",12)); 
+			List<Dietitian> list = dietitianDAO.ReadDietitian(new Dietitian("vanitha", "imagelink-url", "GEM Hospital,perungudi,chennai", "Developer",12)); 
 			assertNotNull(list);
 			
 			for(Dietitian d : list) {
 				System.out.println(d.toString());
 			}
-			System.out.println("Successfully Listed");
+			System.out.println("Successfully Listed"); 
 		}
 		catch(DAOException e) {
 			e.printStackTrace();

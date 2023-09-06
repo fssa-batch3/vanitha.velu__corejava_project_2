@@ -17,7 +17,7 @@ public class TestCreateDietitian {
 	void testCreateDietitianSuccess() {
 		
 		DietitianService dietitianService =new DietitianService();
-		Dietitian dietitian1 = new Dietitian("vanitha", "imagelink-url", "vanitha@gmail.com", "GEM Hospital,perungudi,chennai", "Dietitian",12);
+		Dietitian dietitian1 = new Dietitian("vanitha", "imagelink-url",  "GEM Hospital,perungudi,chennai", "Dietitian",12);
 		
 		try {
 			dietitianService.addDietitian(dietitian1);
@@ -37,7 +37,7 @@ public class TestCreateDietitian {
 		
 
 		DietitianService dietitianService =new DietitianService();
-		Dietitian dietitian2 = new Dietitian("vanitha", "imagelink-url", "vanitha@gmail.com", "GEM Hospital,perungudi,chennai", "",12);
+		Dietitian dietitian2 = new Dietitian("vanitha", "imagelink-url", "GEM Hospital,perungudi,chennai", "",12);
 		
 		try {
 			dietitianService.addDietitian(dietitian2);

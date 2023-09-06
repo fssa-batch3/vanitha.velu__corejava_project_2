@@ -15,10 +15,10 @@ public class TestDeleteDietitian {
 	@Test
 	
 	void deleteDietitianSuccess() {
-		DietitianService dietitianService =new DietitianService();
+		DietitianService dietitianService =new DietitianService();  
 		
 		try {
-			assertTrue(dietitianService.deleteDietitian(new Dietitian(2,"vanitha", "imagelink-url","vanitha@gmail.com", "GEM Hospital,perungudi,chennai", "Dietitian",12)));  
+			assertTrue(dietitianService.deleteDietitian(new Dietitian(3,"Utchikannan Test", "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZG9jdG9yfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60","vanitha@gmail.com", "Thiruvengadam Nagar, Perungudi, Chennai, Tamil Nadu 600096", "Dietitian",8)));  
 		}
 		catch(ServiceException e) {
 			System.err.println(e.getMessage());

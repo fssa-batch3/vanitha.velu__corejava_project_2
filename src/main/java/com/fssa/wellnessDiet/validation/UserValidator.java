@@ -6,7 +6,7 @@ import java.util.regex.PatternSyntaxException;
 
 import com.fssa.wellnessDiet.model.User;
 import com.fssa.wellnessDiet.validation.exception.InvalidUserException;
-public class UserValidator {
+public class UserValidator {  
 	
 	// if three conditions valid then user valid
 	public static boolean ValidateUser(User user) throws InvalidUserException {
@@ -19,7 +19,7 @@ public class UserValidator {
 		}
 	
 	}
-	public static boolean validateName(String name) {
+	public static boolean validateName(String name) { 
 		boolean match = false;
 		try {
 			String regex = "^[A-Za-z0-9_]{3,30}$";

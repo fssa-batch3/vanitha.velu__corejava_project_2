@@ -48,7 +48,7 @@ public class TestUpdateDietitian {
 	    
 	    @Test
 	    public void testInavlidQualificationName() { 
-	        Dietitian dietitianService1 = new  Dietitian("vanitha", "imagelink-url", "vanitha@gmail.com", "GEM Hospital,perungudi,chennai", "Developer",12);
+	        Dietitian dietitianService1 = new  Dietitian("vanitha", "imagelink-url",  "GEM Hospital,perungudi,chennai", "Developer",12);
 	        try {
 	    		assertFalse(DietitianService.updateDietitian(dietitianService1));
 	    	}catch(ServiceException e){
