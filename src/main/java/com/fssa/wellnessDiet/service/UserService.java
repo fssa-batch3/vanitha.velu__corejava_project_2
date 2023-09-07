@@ -13,7 +13,15 @@ import com.fssa.wellnessDiet.validation.exception.InvalidUserException;
 
 public class UserService {
 	
-	public boolean registerUser(User user) throws ServiceException { ///
+	/**
+	 * Registers a new user in the system.
+	 *
+	 * @param user The User object representing the user to be registered.
+	 * @return true if the user is successfully registered, false otherwise.
+	 * @throws ServiceException If a service-level error occurs, including email validation and database errors.
+	 */
+	
+	public boolean registerUser(User user) throws ServiceException { 
 		UserDAO userdao =  new UserDAO();   
 		
 		try {
@@ -26,7 +34,7 @@ public class UserService {
 				System.out.println("registration not successful");
 				return false;
 			}
-		} else {
+		} else {  
 			System.out.println("Email Already Exists");
 			return false;
 		}
@@ -37,7 +45,14 @@ public class UserService {
 		}
 	}
  
-
+	/**
+	 * Logs in a user with the provided email and password.
+	 *
+	 * @param email The email address of the user.
+	 * @param password The password of the user.
+	 * @return true if the login is successful, false otherwise.
+	 * @throws ServiceException If a service-level error occurs, including email and password validation, as well as database errors.
+	 */
 
 
 	public static boolean loginUser(String email, String password) throws ServiceException {
@@ -64,6 +79,14 @@ public class UserService {
 	}
 	
 	
+	
+	/**
+	 * Retrieves a list of all users from the database.
+	 *
+	 * @return A List of User objects representing all users in the database.
+	 * @throws ServiceException If a service-level error occurs, including database errors.
+	 */
+	
 	public static List<User> getAllUser1() throws ServiceException{
 		
 		UserDAO userDAO = new UserDAO();  
@@ -75,13 +98,6 @@ public class UserService {
 			throw new ServiceException(e);
 		}
 	}
-
-
-
-
-
-
-
 	
 
 }

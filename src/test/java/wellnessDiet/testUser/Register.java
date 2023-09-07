@@ -24,10 +24,10 @@ public class Register {
 		try { 
 			assertTrue(UserService.registerUser(user1));
 		} catch ( ServiceException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace(); 
 			fail(); 
-		}
+		} 
 	} 
 	
 	

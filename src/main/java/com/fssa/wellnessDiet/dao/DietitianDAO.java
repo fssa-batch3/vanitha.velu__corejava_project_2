@@ -30,21 +30,30 @@ public class DietitianDAO {
 		
 			e.printStackTrace();
 		} 
-		return connection;
+		return connection; 
 	}
 
-	// add new user to DB - dietitian
+
+	/**
+     * Adds a new dietitian to the database.
+     *
+     * @param dietitian The Dietitian object to be added to the database.
+     * @return true if the dietitian is successfully added, false otherwise.
+     * @throws DAOException If a database error occurs.
+     */
+	
 	public boolean AddDietitian(Dietitian dietitian) throws DAOException {
-		// Get Connection
+		
 
 		// Prepare SQL Statement
 		String insertQuery = "INSERT INTO dietitians (DietitianName,image_url,DietitianAddress,DietitianQualification,DietitianExperience) VALUES (?,?,?,?,?);";
+		// Get Connection
 		try (Connection connection = getConnection();
 				
 		    PreparedStatement pst = connection.prepareStatement(insertQuery);) { 
 			pst.setString(1, dietitian.getDietitianName());
 			pst.setString(2, dietitian.getDietitianUrl());
-			pst.setString(3, dietitian.getDietitianAddress());
+			pst.setString(3, dietitian.getDietitianAddress()); 
 			pst.setString(4, dietitian.getDietitianQualification());
 			pst.setInt(5, dietitian.getDietitianExperience());
 			// Execute update
@@ -57,10 +66,18 @@ public class DietitianDAO {
 		}
 	}
 
-	// Read
+	
+	
+	/**
+     * Reads dietitian information from the database based on the provided Dietitian object.
+     *
+     * @param dietitian2 The Dietitian object with criteria for reading.
+     * @return A List of Dietitian objects that match the criteria.
+     * @throws DAOException If a database error occurs.
+     */
 	@SuppressWarnings("unused")
 	public List<Dietitian> ReadDietitian(Dietitian dietitian2) throws DAOException {
-		// Get Connection
+	
 
 		String insertQuery = "SELECT * FROM  dietitians WHERE DietitianEmail = ?";
 		UserDAO userDao = new UserDAO();
@@ -73,9 +90,16 @@ public class DietitianDAO {
 	}
 
 
+	/**
+     * Updates an existing dietitian's information in the database.
+     *
+     * @param dietitian The Dietitian object with updated information.
+     * @return true if the dietitian is successfully updated, false otherwise.
+     * @throws DAOException If a database error occurs.
+     */
+	
 	public static boolean UpdateDietitian(Dietitian dietitian) throws DAOException {
-		// Get Connection
-
+	
 		// Prepare SQL Statement
 		String insertQuery = "UPDATE dietitians SET DietitianName=? ,image_url=?,DietitianAddress=?, DietitianQualification=?, DietitianExperience=? WHERE dietitian_id=?;";
 
@@ -105,7 +129,15 @@ public class DietitianDAO {
 
 	}
 
-	// delete
+	
+	/**
+     * Deletes a dietitian from the database.
+     *
+     * @param dietitian The Dietitian object to be deleted.
+     * @return true if the dietitian is successfully deleted, false otherwise.
+     * @throws DAOException If a database error occurs.
+     */
+	
 	public boolean DeleteDietitian(Dietitian dietitian) throws DAOException {
 		// Get Connection
 		Connection connection = getConnection();
@@ -131,32 +163,37 @@ public class DietitianDAO {
 	}
 
 	
+	
+	/**
+     * Retrieves a list of all dietitians from the database.
+     *
+     * @return A List of Dietitian objects representing all dietitians in the database.
+     * @throws DAOException If a database error occurs.
+     */
 
 	public List<Dietitian> getAllDietitians() throws DAOException {  
-		// Create an empty list to store products
+		// Create an empty list to store dietitians
 		List<Dietitian> dietitianList = new ArrayList<>();
 
 		final String QUERY = "SELECT dietitian_id, DietitianName,image_url,DietitianAddress, DietitianQualification,DietitianExperience FROM dietitians";
-		// Start a try block with a prepared statement for selecting all products
+		// Start a try block with a prepared statement for selecting all dietitians
 		try (Connection connection = getConnection();
 				PreparedStatement pmt = connection.prepareStatement(QUERY);
 				ResultSet rs = pmt.executeQuery()) {
-			// Iterate through the result set and extract product information
+			// Iterate through the result set and extract dietitian information
 			while (rs.next()) {
 				String DietitianName = rs.getString("DietitianName");
 				String image_url = rs.getString("image_url"); 
 				String DietitianAddress = rs.getString("DietitianAddress");
-				String DietitianQualification = rs.getString("DietitianQualification"); 
+				String DietitianQualification = rs.getString("DietitianQualification");  
 				int  Experience = rs.getInt("DietitianExperience");  
-				
-		
-//				Dietitian dietitian = new Dietitian(); 
+
 
 				dietitianList.add(new Dietitian(image_url,DietitianName,DietitianQualification,DietitianAddress,Experience));   
 				System.out.println(dietitianList.toString());
 
 			}
-			// Return the list of products
+			// Return the list of dietitians
 			return dietitianList;
 
 		} catch (SQLException e) {

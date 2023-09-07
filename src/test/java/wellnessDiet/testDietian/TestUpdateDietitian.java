@@ -24,8 +24,8 @@ public class TestUpdateDietitian {
 				assertTrue(DietitianDAO.UpdateDietitian(dietitianService1)); 
 			} catch (DAOException e) {
 				
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			
+				e.printStackTrace(); 
 			}
 	    }
 

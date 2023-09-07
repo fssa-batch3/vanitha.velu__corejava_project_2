@@ -19,7 +19,7 @@ public class UserValidator {
 		}
 	
 	}
-	public static boolean validateName(String name) { 
+	public static boolean validateName(String name) {   
 		boolean match = false;
 		try {
 			String regex = "^[A-Za-z0-9_]{3,30}$";

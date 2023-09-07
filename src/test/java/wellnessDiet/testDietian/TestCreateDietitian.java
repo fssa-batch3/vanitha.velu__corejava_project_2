@@ -25,7 +25,7 @@ public class TestCreateDietitian {
 		}
 		catch(ServiceException e) {
 			System.out.println(e.getMessage());
-		}
+		} 
 	}
 	
 	/*
@@ -33,11 +33,11 @@ public class TestCreateDietitian {
 	 */
 	@Test
 	
-	void testCreateDietitianFail() {
+	void testCreateDietitianFail() { 
 		
 
 		DietitianService dietitianService =new DietitianService();
-		Dietitian dietitian2 = new Dietitian("vanitha", "imagelink-url", "GEM Hospital,perungudi,chennai", "",12);
+		Dietitian dietitian2 = new Dietitian("imageUrl","Vanitha","Chennai","Bsc",6);
 		
 		try {
 			dietitianService.addDietitian(dietitian2);

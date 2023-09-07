@@ -24,7 +24,7 @@ public class UserDAO {
 //		dbUser = System.getenv("DB_USER");
 //		dbPassword = System.getenv("DB_PASSWORD");
 
-		dbUrl = "jdbc:mysql://localhost:3306/web_project";
+		dbUrl = "jdbc:mysql://localhost:3306/web_project"; 
 		dbUser = "root";
 		dbPassword = "24@manojkumar";
 
@@ -40,6 +40,15 @@ public class UserDAO {
 		return connect;
 	}
 
+	
+	/**
+	 * Inserts a new user into the database.
+	 *
+	 * @param user The User object to be inserted.
+	 * @return true if the user is successfully inserted, false otherwise.
+	 * @throws DAOException If a database error occurs.
+	 */
+	
 	public boolean insertUser(User user) throws DAOException {
 		String insertQuery = "INSERT INTO user (username , email , password) VALUES (?,?,?)";
 		try (Connection connection = getConnection();
@@ -55,6 +64,13 @@ public class UserDAO {
 	}
 
 
+	/**
+	 * Finds a user by their email address in the database.
+	 *
+	 * @param email The email address of the user to search for.
+	 * @return A User object representing the user with the specified email, or an empty User object if not found.
+	 * @throws DAOException If a database error occurs.
+	 */
 
 	public User findUserByEmail(String email) throws DAOException {
 		User user = new User();
@@ -77,6 +93,14 @@ public class UserDAO {
 		}
 	}
 
+	
+	/**
+	 * Checks if an email address already exists in the database.
+	 *
+	 * @param email The email address to check for existence.
+	 * @return true if the email address already exists in the database, false otherwise.
+	 * @throws InvalidUserException If an error occurs while checking for the email's existence.
+	 */
 	public boolean emailAlreadyExists(String email) throws InvalidUserException {
 		String insertQuery = "SELECT * FROM user WHERE email=?";
 		try (Connection connection = getConnection();
@@ -90,6 +114,14 @@ public class UserDAO {
 		}
 	}
 
+	
+	/**
+	 * Sets a user's login status to "logged in" in the database.
+	 *
+	 * @param email The email address of the user to set as logged in.
+	 * @return true if the user's login status is successfully updated, false otherwise.
+	 * @throws InvalidUserException If an error occurs while setting the login status.
+	 */
 	public boolean setLoggedIn(String email) throws InvalidUserException {
 
 		String insertQuery = "UPDATE user SET logged_in ='1' WHERE email=?";
@@ -105,18 +137,23 @@ public class UserDAO {
 	}
 
 
-		
+	/**
+	 * Retrieves a list of all users from the database.
+	 *
+	 * @return A List of User objects representing all users in the database.
+	 * @throws DAOException If a database error occurs.
+	 */
 		
 		public List<User> getAllUsers() throws DAOException { 
-			// Create an empty list to store products
+			// Create an empty list to store users
 			List<User> user = new ArrayList<>();
 
 			final String QUERY = "SELECT user_id, username,email, password FROM user";
-			// Start a try block with a prepared statement for selecting all products
+			// Start a try block with a prepared statement for selecting all users
 			try (Connection connection = getConnection();
 					PreparedStatement pmt = connection.prepareStatement(QUERY);
 					ResultSet rs = pmt.executeQuery()) {
-				// Iterate through the result set and extract product information
+				// Iterate through the result set and extract user information
 				while (rs.next()) {
 					int userId = rs.getInt("user_id");
 					String username = rs.getString("username");
@@ -129,7 +166,7 @@ public class UserDAO {
 					user.add(new User(username, email, password,userId));  
 
 				}
-				// Return the list of products
+				// Return the list of users
 				return user;
 
 			} catch (SQLException e) {

@@ -16,7 +16,7 @@ public class Login {
 		try {
 			assertTrue(UserService.loginUser("vanitha@gmail.com", "vanitha@123"));
 		} catch (ServiceException e) {
-			e.printStackTrace();
+			e.printStackTrace(); 
 		}
 
 	}
@@ -39,7 +39,7 @@ public class Login {
 		try {
 			assertFalse(UserService.loginUser("vanitha@gmail.com", "vani#458"));
 		} catch (ServiceException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 
@@ -62,7 +62,7 @@ public class Login {
 		try {
 			assertFalse(UserService.loginUser("vanitha#gmail.com", "vanitha@123"));
 		} catch (ServiceException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 

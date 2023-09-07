@@ -33,7 +33,7 @@ public class TestGetAllDietitian {
 			for(Dietitian d : list) {
 				System.out.println(d.toString());
 			}
-			System.out.println("Successfully Listed"); 
+			System.out.println("Successfully Listed");   
 		}
 		catch(DAOException e) {
 			e.printStackTrace();

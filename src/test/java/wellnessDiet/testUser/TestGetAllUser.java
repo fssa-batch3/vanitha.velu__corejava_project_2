@@ -27,7 +27,7 @@ public class TestGetAllUser {
 			for (User p : list) {
 				System.err.println(p.toString());
 			}
-
+ 
 		} catch (ServiceException e) {
 			fail();
 		}

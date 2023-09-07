@@ -11,6 +11,14 @@ import com.fssa.wellnessDiet.service.exception.ServiceException;
 
 public class DietitianService {
 
+	/**
+	 * Adds a new dietitian to the database.
+	 *
+	 * @param dietitian The Dietitian object to be added.
+	 * @return true if the dietitian is successfully added, false otherwise.
+	 * @throws ServiceException If a service-level error occurs.
+	 */
+	
 	public boolean addDietitian(Dietitian dietitian) throws ServiceException {
 		DietitianDAO dietitianDao = new DietitianDAO();
 
@@ -26,6 +34,14 @@ public class DietitianService {
 	}
 
 	
+	
+	/**
+	 * Updates an existing dietitian's information in the database.
+	 *
+	 * @param dietitian The Dietitian object with updated information.
+	 * @return true if the dietitian is successfully updated, false otherwise.
+	 * @throws ServiceException If a service-level error occurs.
+	 */
 	@SuppressWarnings("static-access")
 	public static boolean updateDietitian(Dietitian dietitian) throws ServiceException {
 		DietitianDAO dietitianDAO = new DietitianDAO();
@@ -43,7 +59,15 @@ public class DietitianService {
 
 	}
 
-	// delete Dietitian
+	
+	/**
+	 * Deletes a dietitian from the database.
+	 *
+	 * @param dietitian The Dietitian object to be deleted.
+	 * @return true if the dietitian is successfully deleted, false otherwise.
+	 * @throws ServiceException If a service-level error occurs.
+	 */
+	
 	public static boolean deleteDietitian(Dietitian dietitian) throws ServiceException {
 		DietitianDAO dietitianDAO = new DietitianDAO();
 
@@ -60,7 +84,14 @@ public class DietitianService {
 
 	}
 
-//read Dietitian
+
+	/**
+	 * Reads dietitian information from the database based on the provided Dietitian object.
+	 *
+	 * @param dietitian The Dietitian object with criteria for reading.
+	 * @return A List of Dietitian objects that match the criteria.
+	 * @throws ServiceException If a service-level error occurs, including validation failures.
+	 */
 	
 	@SuppressWarnings("static-access")
 	public static List<Dietitian>  readDietitian(Dietitian dietitian) throws ServiceException {
@@ -75,12 +106,20 @@ public class DietitianService {
 				}
 			}
 			
-		} catch (DAOException | InvalidDietitianException e) {
+		} catch (DAOException | InvalidDietitianException e) {   
 			throw new ServiceException(e);
 		}
 		return dietitians;
 	}
 	
+	
+	
+	/**
+	 * Retrieves a list of all dietitians from the database.
+	 *
+	 * @return A List of Dietitian objects representing all dietitians in the database.
+	 * @throws ServiceException If a service-level error occurs.
+	 */
 	
 	public List<Dietitian> getAllDietitian() throws ServiceException {
 

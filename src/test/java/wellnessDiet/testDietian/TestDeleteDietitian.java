@@ -18,13 +18,13 @@ public class TestDeleteDietitian {
 		DietitianService dietitianService =new DietitianService();  
 		
 		try {
-			assertTrue(dietitianService.deleteDietitian(new Dietitian(5)));  
+			assertTrue(dietitianService.deleteDietitian(new Dietitian(16)));  
 		}  
 		catch(ServiceException e) {
 			System.err.println(e.getMessage());
 		}
 	}
-
+ 
 	@SuppressWarnings("static-access")
 	@Test
 	
