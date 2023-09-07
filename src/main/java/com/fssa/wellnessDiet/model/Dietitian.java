@@ -28,7 +28,7 @@ public class Dietitian {
 		
 	}
 
-	public Dietitian(String imageUrl, String detitianName, String qualification, String address, int experience) {
+	public Dietitian(String imageUrl, String detitianName, String qualification, String address, int experience) { 
 		
 		this.DietitianUrl = imageUrl; 
 		this.DietitianName = detitianName;

@@ -23,7 +23,7 @@ public class DietitianService {
 		DietitianDAO dietitianDao = new DietitianDAO();
 
 		try {
-			if (dietitianDao.AddDietitian(dietitian)) { 
+			if (dietitianDao.AddDietitian(dietitian)) {  
 				return true;
 			} else {
 				return false;

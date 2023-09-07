@@ -15,10 +15,10 @@ public class TestDeleteDietitian {
 	@Test
 	
 	void deleteDietitianSuccess() {
-		DietitianService dietitianService =new DietitianService();  
+		DietitianService dietitianService =new DietitianService();     
 		
 		try {
-			assertTrue(dietitianService.deleteDietitian(new Dietitian(16)));  
+			assertTrue(dietitianService.deleteDietitian(new Dietitian(23)));  
 		}  
 		catch(ServiceException e) {
 			System.err.println(e.getMessage());

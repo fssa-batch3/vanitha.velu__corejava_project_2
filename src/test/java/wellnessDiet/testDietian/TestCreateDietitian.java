@@ -24,7 +24,7 @@ public class TestCreateDietitian {
 			System.out.println("Dietitian Successfully Created");
 		}
 		catch(ServiceException e) {
-			System.out.println(e.getMessage());
+			System.out.println(e.getMessage()); 
 		} 
 	}
 	

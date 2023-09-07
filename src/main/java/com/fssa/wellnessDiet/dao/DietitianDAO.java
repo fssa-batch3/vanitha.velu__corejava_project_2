@@ -42,7 +42,7 @@ public class DietitianDAO {
      * @throws DAOException If a database error occurs.
      */
 	
-	public boolean AddDietitian(Dietitian dietitian) throws DAOException {
+	public boolean AddDietitian(Dietitian dietitian) throws DAOException { 
 		
 
 		// Prepare SQL Statement
