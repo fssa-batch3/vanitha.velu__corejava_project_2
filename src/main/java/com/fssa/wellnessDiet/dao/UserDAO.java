@@ -22,11 +22,11 @@ public class UserDAO {
 
 //		dbUrl = System.getenv("DB_URL");
 //		dbUser = System.getenv("DB_USER");
-//		dbPassword = System.getenv("DB_PASSWORD");
+//		dbPassword = System.getenv("DB_PASSWORD"); 
 
 		dbUrl = "jdbc:mysql://localhost:3306/web_project"; 
 		dbUser = "root";
-		dbPassword = "24@manojkumar";
+		dbPassword = "243@Vanitha";
 
 		Connection connect = null;
 

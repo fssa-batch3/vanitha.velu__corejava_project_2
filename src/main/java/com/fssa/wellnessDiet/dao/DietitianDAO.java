@@ -25,7 +25,7 @@ public class DietitianDAO {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/web_project", "root",
-					"24@manojkumar");
+					"243@Vanitha");
 		} catch (SQLException | ClassNotFoundException e) {
 		
 			e.printStackTrace();

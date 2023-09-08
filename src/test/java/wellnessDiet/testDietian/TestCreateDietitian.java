@@ -1,5 +1,4 @@
 package wellnessDiet.testDietian;
-
 import org.junit.jupiter.api.Test;
 
 import com.fssa.wellnessDiet.model.Dietitian;
