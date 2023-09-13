@@ -18,7 +18,7 @@ public class TestDeleteDietitian {
 		DietitianService dietitianService =new DietitianService();     
 		
 		try {
-			assertTrue(dietitianService.deleteDietitian(new Dietitian(23)));  
+			assertTrue(dietitianService.deleteDietitian(new Dietitian(14)));  
 		}  
 		catch(ServiceException e) {
 			System.err.println(e.getMessage());
