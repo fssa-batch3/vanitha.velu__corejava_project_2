@@ -1,39 +1,37 @@
 package com.fssa.wellnessDiet.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 	
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String username;
 	public String email;
 	public String password;
 	public int UserId;
+	private String type;
 
-// public User (String email) {
-//		this.email = email;
-//	 
-// }
+
  
- public User(String username,String email,String password, int UserId) { 
+ public User(String username,String email,String password,String type, int userId) { 
 	 this.username = username;
 	 this.password = password;
 	 this.email = email;
-	 this.UserId = UserId;
+	 this.type = type;
+	 this.UserId = userId;
  }
 
 	
-	public User(String username, String email, String password) {
-		super();
-		this.username = username;
-		this.email = email;
-		this.password = password;
-
-	}
-	
-
-
 
 	public User() {
-		// TODO Auto-generated constructor stub
-	}
+	
+}
+
 
 
 	public String getUsername() {
@@ -61,9 +59,20 @@ public class User {
 	public void setUserId(int UserId) {
 		this.UserId = UserId;
 	}
+	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {  
+		this.type = type;
+	}
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", email=" + email + ", password=" + password +"]";   
+		return "User [username=" + username + ", email=" + email + ", password=" + password + "type" + type + "]";   
 	}
+
+
+
+
 	
 }

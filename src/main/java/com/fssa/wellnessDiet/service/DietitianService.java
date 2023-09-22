@@ -19,7 +19,7 @@ public class DietitianService {
 	 * @throws ServiceException If a service-level error occurs.
 	 */
 	
-	public boolean addDietitian(Dietitian dietitian) throws ServiceException {
+	public boolean addDietitian(Dietitian dietitian) throws ServiceException { 
 		DietitianDAO dietitianDao = new DietitianDAO();
 
 		try {
@@ -42,7 +42,6 @@ public class DietitianService {
 	 * @return true if the dietitian is successfully updated, false otherwise.
 	 * @throws ServiceException If a service-level error occurs.
 	 */
-	@SuppressWarnings("static-access")
 	public static boolean updateDietitian(Dietitian dietitian) throws ServiceException {
 		DietitianDAO dietitianDAO = new DietitianDAO();
 
@@ -132,7 +131,43 @@ public class DietitianService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return dietitian;
+		return dietitian; 
 	}
+
+
+
+	public Dietitian findDietitianById(int dietitian_id) throws ServiceException {
+	    try {
+	    	DietitianDAO DietitianDAO = new DietitianDAO();
+	    	Dietitian Dietitian = DietitianDAO.findDietitianById(dietitian_id);  
+
+	        if (Dietitian != null) {  
+	            return Dietitian;
+	        } else { 
+	            System.err.println("Dietitian not found");
+	            return null;
+	        }
+	    } catch (DAOException e) {
+	        throw new ServiceException(e);
+	    }
+	}
+	
+	
+	public Dietitian findDietitianByUserId(int userId) throws ServiceException {
+	    try {
+	    	DietitianDAO DietitianDAO = new DietitianDAO();
+	    	Dietitian Dietitian = DietitianDAO.findDietitianByUserId(userId);  
+
+	        if (Dietitian != null) {  
+	            return Dietitian;
+	        } else { 
+	            System.err.println("Dietitian not found");
+	            return null;
+	        }
+	    } catch (DAOException e) {
+	        throw new ServiceException(e);
+	    }
+	}
+
 
 }

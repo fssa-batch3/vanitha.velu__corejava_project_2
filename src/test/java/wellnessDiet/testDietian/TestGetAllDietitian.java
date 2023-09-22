@@ -19,7 +19,7 @@ public class TestGetAllDietitian {
 
 	@Test
 	
-	void ValidGetSuccess() {
+	void ValidGetSuccess() { 
 		
 		DietitianDAO dietitianDAO = new DietitianDAO();
 		@SuppressWarnings("unused")
@@ -27,19 +27,15 @@ public class TestGetAllDietitian {
 		
 		try {
 					
-			List<Dietitian> list = dietitianDAO.ReadDietitian(new Dietitian("vanitha", "imagelink-url", "GEM Hospital,perungudi,chennai", "Developer",12)); 
+			List<Dietitian> list = dietitianDAO.ReadDietitian(new Dietitian("vanitha", "imagelink-url", "GEM Hospital,perungudi,chennai", "Dietitian",12)); 
 			assertNotNull(list);
-			
-			for(Dietitian d : list) {
-				System.out.println(d.toString());
-			}
-			System.out.println("Successfully Listed");   
+			System.out.println(list);
+		 
 		}
 		catch(DAOException e) {
 			e.printStackTrace();
 			fail();
 		}
-	}
-	
+	}	
 
 }

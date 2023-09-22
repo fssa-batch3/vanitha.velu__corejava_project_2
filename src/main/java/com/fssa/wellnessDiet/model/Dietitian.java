@@ -5,37 +5,50 @@ public class Dietitian {
 	private String DietitianQualification;
 	private String DietitianAddress;
 	private int DietitianExperience;
-	private int UserID;
+	private int dietitian_id;
 	private String DietitianUrl;
+	private int createdUser;
 
-
-	public Dietitian(int UserID,String dietitianName, String ImageURL,String dietitianAddress,
+	public Dietitian(int dietitian_id, String dietitianName, String ImageURL, String dietitianAddress,
 			String dietitianQualification, int dietitianExperience) {
-        this.UserID=UserID;
+		this.dietitian_id = dietitian_id;
 		this.DietitianUrl = ImageURL;
 		this.DietitianName = dietitianName;
 		this.DietitianQualification = dietitianQualification;
-		this.DietitianAddress = dietitianAddress; 
+		this.DietitianAddress = dietitianAddress;
 		this.DietitianExperience = dietitianExperience;
 
 	}
 
-
-	public Dietitian(int userID) {
-		this.UserID = userID;
+	public Dietitian(int dietitian_id) {
+		this.dietitian_id = dietitian_id;
 	}
+
 	public Dietitian() {
-		
+
 	}
 
-	public Dietitian(String imageUrl, String detitianName, String qualification, String address, int experience) { 
-		
-		this.DietitianUrl = imageUrl; 
+	public Dietitian(String imageUrl, String detitianName, String qualification, String address, int experience,
+			int createdUser) {
+
+		this.DietitianUrl = imageUrl;
 		this.DietitianName = detitianName;
 		this.DietitianQualification = qualification;
-		this.DietitianAddress = address; 
+		this.DietitianAddress = address;
 		this.DietitianExperience = experience;
+		this.setCreatedUser(createdUser);
 	}
+
+	public Dietitian(String imageUrl, String detitianName, String qualification, String address, int experience) {
+
+		this.DietitianUrl = imageUrl;
+		this.DietitianName = detitianName;
+		this.DietitianQualification = qualification;
+		this.DietitianAddress = address;
+		this.DietitianExperience = experience;
+
+	}
+
 	public String getDietitianUrl() {
 		return DietitianUrl;
 	}
@@ -44,22 +57,22 @@ public class Dietitian {
 		DietitianUrl = dietitianUrl;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Dietitian [DietitianName=" + DietitianName + ", DietitianQualification=" + DietitianQualification
 				+ ", DietitianExperience=" + DietitianExperience + ", DietitianAddress=" + DietitianAddress
-				+ ", userID=" + UserID + ", getUserID()=" + getUserID() + ", getDietitianQualification()="
-				+ getDietitianQualification() + ", getDietitianName()=" + getDietitianName() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+				+ ", userID=" + dietitian_id + ", getdietitian_id()=" + getdietitian_id()
+				+ ", getDietitianQualification()=" + getDietitianQualification() + ", getDietitianName()="
+				+ getDietitianName() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ super.toString() + "]";
 	}
 
-	public int getUserID() {
-		return UserID;
+	public int getdietitian_id() {
+		return dietitian_id;
 	}
 
-	public void setUserID(int userID) {
-		this.UserID = userID;
+	public void setdietitian_id(int dietitian_id) {
+		this.dietitian_id = dietitian_id;
 	}
 
 	public String getDietitianQualification() {
@@ -92,6 +105,14 @@ public class Dietitian {
 
 	public void setDietitianExperience(int dietitianExperience) {
 		DietitianExperience = dietitianExperience;
+	}
+
+	public int getCreatedUser() {
+		return createdUser;
+	}
+
+	public void setCreatedUser(int createdUser) {
+		this.createdUser = createdUser;
 	}
 
 

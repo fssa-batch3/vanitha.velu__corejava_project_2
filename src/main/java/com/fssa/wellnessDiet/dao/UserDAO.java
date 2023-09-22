@@ -50,12 +50,13 @@ public class UserDAO {
 	 */
 	
 	public boolean insertUser(User user) throws DAOException {
-		String insertQuery = "INSERT INTO user (username , email , password) VALUES (?,?,?)";
+		String insertQuery = "INSERT INTO user (username , email , password, type) VALUES (?,?,?,?)";
 		try (Connection connection = getConnection();
 				PreparedStatement pst = connection.prepareStatement(insertQuery);) {
 			pst.setString(1, user.getUsername());
 			pst.setString(2, user.getEmail());
 			pst.setString(3, user.getPassword());
+			pst.setString(4, user.getType());
 			int rows = pst.executeUpdate();
 			return (rows >= 1);
 		} catch (SQLException e) {
@@ -82,8 +83,11 @@ public class UserDAO {
 			pst.setString(1, email);
 			ResultSet rs = pst.executeQuery();
 			if (rs.next()) {
+				user.setUsername(rs.getString("username"));
 				user.setEmail(rs.getString("email"));
 				user.setPassword(rs.getString("password"));
+				user.setType(rs.getString("type"));
+				user.setUserId(rs.getInt("user_id"));
 
 			}
 			return user;
@@ -159,11 +163,12 @@ public class UserDAO {
 					String username = rs.getString("username");
 					String email = rs.getString("email");
 					String password = rs.getString("password"); 
-			
+					String type = rs.getString("type");
+
 					User user1 = new User();
 					user1.setUserId(userId);
 
-					user.add(new User(username, email, password,userId));  
+					user.add(new User(username, email, password,type,userId));  
 
 				}
 				// Return the list of users

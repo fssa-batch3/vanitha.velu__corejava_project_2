@@ -26,9 +26,7 @@ public class UserValidator {
 			match = Pattern.matches(regex, name);
 			if (match) {
 				System.out.println("The user name is valid.");
-			} else {
-				System.out.println("user name is not valid");
-			}
+			} 
 		} catch (Exception e) {
 			System.out.println("user name is not valid");
 		}

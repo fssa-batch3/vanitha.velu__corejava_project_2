@@ -18,11 +18,11 @@ import com.fssa.wellnessDiet.service.*;
 public class Register {
 	Throwable exception; 
 	@Test
-	  void testRegisterSuccess() { 
-		User user1 = new User("sababa","sabma@gmail.com","vanith@123");
+	  void testRegisterSuccess() {  
+		User user1 = new User("durga","durga@gmail.com","vanith@123","dietitian", 0);
 		UserService  UserService = new UserService();
 		try { 
-			assertTrue(UserService.registerUser(user1));
+			assertTrue(UserService.registerUser(user1)); 
 		} catch ( ServiceException e) {
 			
 			e.printStackTrace(); 
@@ -36,7 +36,7 @@ public class Register {
 	
 	 void testInvalidPassword() {
 		UserService userService = new UserService();
-		User user = new User("vanitha","vanitha@gmail.com","vani458");
+		User user = new User("vanitha","vanitha@gmail.com","vani458","patient", 0);
 		
 		
 		try {
@@ -54,7 +54,7 @@ public class Register {
 	
 	 void testvalidPassword() {
 		UserService userService = new UserService();
-		User user = new User("vanitha","vanitha@gmail.com","vanitha@123");
+		User user = new User("vanitha","vanitha@gmail.com","vanitha@123","patient", 0);
 		
 		
 		try {

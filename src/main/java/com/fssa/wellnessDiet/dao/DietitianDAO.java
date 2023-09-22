@@ -46,7 +46,7 @@ public class DietitianDAO {
 		
 
 		// Prepare SQL Statement
-		String insertQuery = "INSERT INTO dietitians (DietitianName,image_url,DietitianAddress,DietitianQualification,DietitianExperience) VALUES (?,?,?,?,?);";
+		String insertQuery = "INSERT INTO dietitians (DietitianName,image_url,DietitianAddress,DietitianQualification,DietitianExperience,user_id) VALUES (?,?,?,?,?,?);";
 		// Get Connection
 		try (Connection connection = getConnection();
 				
@@ -56,6 +56,7 @@ public class DietitianDAO {
 			pst.setString(3, dietitian.getDietitianAddress()); 
 			pst.setString(4, dietitian.getDietitianQualification());
 			pst.setInt(5, dietitian.getDietitianExperience());
+			pst.setInt(6, dietitian.getCreatedUser());
 			// Execute update
 			int rows = pst.executeUpdate();
 
@@ -106,14 +107,14 @@ public class DietitianDAO {
 		try {
 			Connection connection = getConnection();
 			PreparedStatement pst = connection.prepareStatement(insertQuery);
-
+ 
 			
 			pst.setString(1, dietitian.getDietitianName()); 
 			pst.setString(2, dietitian.getDietitianUrl());
 			pst.setString(3, dietitian.getDietitianAddress());
 			pst.setString(4, dietitian.getDietitianQualification());
 			pst.setInt(5, dietitian.getDietitianExperience());
-			pst.setInt(6, dietitian.getUserID());
+			pst.setInt(6, dietitian.getdietitian_id());
 	
 		
 
@@ -147,7 +148,7 @@ public class DietitianDAO {
 
 		try {
 			PreparedStatement pst = connection.prepareStatement(insertQuery);
-			pst.setInt(1, dietitian.getUserID());
+			pst.setInt(1, dietitian.getdietitian_id());
 			// Execute query
 			int rows = pst.executeUpdate();
 
@@ -187,7 +188,7 @@ public class DietitianDAO {
 				String DietitianAddress = rs.getString("DietitianAddress");
 				String DietitianQualification = rs.getString("DietitianQualification");  
 				int  Experience = rs.getInt("DietitianExperience");  
-
+				
 
 				dietitianList.add(new Dietitian(image_url,DietitianName,DietitianQualification,DietitianAddress,Experience));   
 				System.out.println(dietitianList.toString());
@@ -200,6 +201,59 @@ public class DietitianDAO {
 			throw new DAOException("Error in getting All dietitians");
 					
 		}
+	}
+		
+		public static Dietitian findDietitianById(int dietitian_id) throws DAOException { 
+			Dietitian dietitian = new Dietitian(); 
+			String insertQuery = "SELECT * FROM dietitian WHERE dietitian_id=?"; 
+			try (
+
+					Connection connection = getConnection();
+					PreparedStatement pst = connection.prepareStatement(insertQuery)) {
+				 pst.setInt(1, dietitian_id);  
+				ResultSet rs = pst.executeQuery();   
+				if (rs.next()) {
+					dietitian.setDietitianUrl(rs.getString("imageUrl")); 
+					dietitian.setdietitian_id(rs.getInt("dietitian_id"));
+					dietitian.setDietitianName(rs.getString("DietitianName"));
+					dietitian.setDietitianAddress(rs.getString("DietitianAddress"));
+					dietitian.setDietitianQualification(rs.getString("DietitianQualification"));
+					dietitian.setDietitianExperience(rs.getInt("DietitianExperience"));
+ 
+				}
+				return dietitian; 
+			} catch (SQLException e) {
+				throw new DAOException("Cannot find dietitian by ID");
+
+			}
+		
+
+	}
+		
+		public static Dietitian findDietitianByUserId(int userId) throws DAOException { 
+			Dietitian dietitian = new Dietitian(); 
+			String insertQuery = "SELECT * FROM dietitians WHERE user_id=?"; 
+			try (
+
+					Connection connection = getConnection();
+					PreparedStatement pst = connection.prepareStatement(insertQuery)) {
+				 pst.setInt(1, userId);  
+				ResultSet rs = pst.executeQuery();   
+				if (rs.next()) {
+					dietitian.setDietitianUrl(rs.getString("image_url")); 
+					dietitian.setdietitian_id(rs.getInt("dietitian_id"));
+					dietitian.setDietitianName(rs.getString("DietitianName"));
+					dietitian.setDietitianAddress(rs.getString("DietitianAddress"));
+					dietitian.setDietitianQualification(rs.getString("DietitianQualification"));
+					dietitian.setDietitianExperience(rs.getInt("DietitianExperience"));
+ 
+				}
+				return dietitian; 
+			} catch (SQLException e) {
+				throw new DAOException("Cannot find dietitian by ID");
+
+			}
+		
 
 	}
 

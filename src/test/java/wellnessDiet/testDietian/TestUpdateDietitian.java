@@ -14,7 +14,7 @@ import com.fssa.wellnessDiet.service.exception.ServiceException;
 
 
 public class TestUpdateDietitian {
-
+  
 	
 	 @Test
 	    public void testValidUpdate() {

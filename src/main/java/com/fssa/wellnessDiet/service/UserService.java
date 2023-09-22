@@ -13,6 +13,9 @@ import com.fssa.wellnessDiet.validation.exception.InvalidUserException;
 
 public class UserService {
 	
+	public UserService() {
+		// Default Parameter
+	}
 	/**
 	 * Registers a new user in the system.
 	 *
@@ -87,7 +90,7 @@ public class UserService {
 	 * @throws ServiceException If a service-level error occurs, including database errors.
 	 */
 	
-	public static List<User> getAllUser1() throws ServiceException{
+	public static List<User> getAllUser() throws ServiceException{
 		
 		UserDAO userDAO = new UserDAO();  
 		try {
@@ -98,6 +101,21 @@ public class UserService {
 			throw new ServiceException(e);
 		}
 	}
+	public static User findingUserByEmail(String email) throws ServiceException {
+		try {
+	
+			User user = new UserDAO().findUserByEmail(email);
+
+			if (user == null)
+				throw new ServiceException("user obj is null");
+
+			return user;
+		} catch (DAOException e) {
+		
+			throw new ServiceException("Error in service");
+		}
+	}
+
 	
 
 }

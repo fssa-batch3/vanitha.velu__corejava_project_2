@@ -20,8 +20,8 @@ public class TestGetAllUser {
 		UserService service = new UserService(); 
 		try {
 			assertTrue(service.registerUser(new User("vanitha", "vanitha.velu@fsaa.freshworks.com",
-					"24@vanitha")));
-			List<User> list = UserService.getAllUser1();
+					"24@vanitha","patient", 0)));
+			List<User> list = UserService.getAllUser();
 			assertNotNull(list);
 
 			for (User p : list) {
