@@ -31,25 +31,24 @@ public class AppoinmentDAO {
 			return connection; 
 		} 
 		
-public boolean addAppointment(String patientName, String email, String address, String problem, String branch, Date date) throws DAOException {
+public boolean addAppointment(String patientName, String email, String problem, String branch, Date date,String status) throws DAOException {
 
 
-    String INSERT_APPOINTMENT = "INSERT INTO appointments (patient_name, email, address, problem, branch, date_time) VALUES (?, ?, ?, ?, ?, ?)";
+    String INSERT_APPOINTMENT = "INSERT INTO appointments (patient_name, email, problem, branch, date_time, status) VALUES (?, ?, ?, ?, ?, ?)";
  
     try (Connection connection = getConnection();
          PreparedStatement preparedStatement = connection.prepareStatement(INSERT_APPOINTMENT)) {
         preparedStatement.setString(1, patientName);
         preparedStatement.setString(2, email);
-        preparedStatement.setString(3, address);
-        preparedStatement.setString(4, problem);
-        preparedStatement.setString(5, branch);
-        preparedStatement.setDate(6, date); 
+        preparedStatement.setString(3, problem);
+        preparedStatement.setString(4, branch);
+        preparedStatement.setDate(5, date); 
+        preparedStatement.setString(6, status); 
 
         int rowsAffected = preparedStatement.executeUpdate();
         return rowsAffected > 0; 
     } catch (SQLException e) {
-        e.printStackTrace();
-        return false;
+    	throw new DAOException(e);
     }
 }
 
@@ -58,22 +57,23 @@ public List<Appoinment> getAllAppointment() throws DAOException {
 	// Create an empty list to store dietitians 
 	List<Appoinment> appointmentList = new ArrayList<>();
 
-	final String QUERY = "SELECT patient_name, email, address, problem, branch, date_time FROM appointments";
+	final String QUERY = "SELECT patient_name, email, problem, branch, date_time, status FROM appointments";
 	// Start a try block with a prepared statement for selecting all dietitians
 	try (Connection connection = getConnection();
 			PreparedStatement pmt = connection.prepareStatement(QUERY);
 			ResultSet rs = pmt.executeQuery()) {
+		
 		// Iterate through the result set and extract dietitian information
 		while (rs.next()) {
 			String patientName = rs.getString("patient_name");
 			String email = rs.getString("email"); 
-			String address = rs.getString("address");
 			String problem = rs.getString("problem");
 			String branch = rs.getString("branch");   
-			Date  date = rs.getDate("date_time");        
+			Date  date = rs.getDate("date_time"); 
+			String status = rs.getString("status");
 			 
 
-			appointmentList.add(new Appoinment(patientName,email,address,problem,branch,date));     
+			appointmentList.add(new Appoinment(patientName,email,problem,branch,date,status));     
 			System.out.println(appointmentList.toString());  
 
 		}

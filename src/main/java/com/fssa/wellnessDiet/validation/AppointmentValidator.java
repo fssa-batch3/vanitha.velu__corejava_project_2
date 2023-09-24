@@ -15,10 +15,10 @@ public class AppointmentValidator {
 	public void validateAppointment(Appoinment appointment) throws DAOException {          
 	    String patientName = appointment.getPatientName();
 	    String email = appointment.getEmail();
-	    String address = appointment.getAddress();
 	    String problem = appointment.getProblem();
 	    String branch = appointment.getBranch();
-	    Date date = appointment.getDate();   
+	    Date date = appointment.getDate();  
+	    String status = appointment.getStatus();
 	    
 	}  
 	    

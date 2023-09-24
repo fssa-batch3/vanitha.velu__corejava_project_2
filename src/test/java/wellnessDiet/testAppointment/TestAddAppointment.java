@@ -26,7 +26,7 @@ void testCreateAppointment() {
         Date sqlDate = Date.valueOf(localDate);
 
         Appoinment appointment = new Appoinment("Nithya", "nithi@gmail.com", 
-                "GEM Hospital,perungudi,chennai", "weightloss", "OMR", sqlDate);
+                 "weightloss", "OMR", sqlDate,"confirmed");
         
         boolean result = appointmentService.addAppointment(appointment); 
          
@@ -61,7 +61,7 @@ void testInvalidName() {
 
        
         Appoinment appointment = new Appoinment("yt", "vani@gmail.com", 
-                "GEM Hospital,perungudi,chennai", "weightGain", "OMR", sqlDate);
+               "weightGain", "OMR", sqlDate , "cancel");
         
         boolean result = appointmentService.addAppointment(appointment);
         
@@ -71,24 +71,24 @@ void testInvalidName() {
     }
 }
 
-void testInvalidAddress() { 
-    try {
-    	AppoinmentDAO appointmentDAO = new AppoinmentDAO(); // Create a valid instance of AppoinmentDAO
-        AppointmentService appointmentService = new AppointmentService();
-        
-        LocalDate localDate = LocalDate.of(2023, 9, 21);
-        Date sqlDate = Date.valueOf(localDate);
-
-        Appoinment appointment = new Appoinment("vanitha", "vani@gmail.com", 
-                "", "weightGain", "OMR", sqlDate);
-        
-        boolean result = appointmentService.addAppointment(appointment);
-        
-        assertFalse(result, "invalid address");
-    } catch (Exception e) {
-        fail(e.getMessage());
-    }
-}
+//void testInvalidAddress() { 
+//    try {
+//    	AppoinmentDAO appointmentDAO = new AppoinmentDAO(); // Create a valid instance of AppoinmentDAO
+//        AppointmentService appointmentService = new AppointmentService();
+//        
+//        LocalDate localDate = LocalDate.of(2023, 9, 21);
+//        Date sqlDate = Date.valueOf(localDate);
+//
+//        Appoinment appointment = new Appoinment("vanitha", "vani@gmail.com", 
+//                "", "weightGain", "OMR", sqlDate);
+//        
+//        boolean result = appointmentService.addAppointment(appointment);
+//        
+//        assertFalse(result, "invalid address");
+//    } catch (Exception e) {
+//        fail(e.getMessage());
+//    }
+//}
 
 
 @Test 
@@ -101,7 +101,7 @@ void testInvalidDate() {
         Date sqlDate = Date.valueOf(localDate);
 
         Appoinment appointment = new Appoinment("vanitha", "vani@gmail.com", 
-                "GEM Hospital,perungudi,chennai", "weightGain", "OMR", sqlDate);
+                 "weightGain", "OMR", sqlDate,"cancel");
         
         boolean result = appointmentService.addAppointment(appointment);
         

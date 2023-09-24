@@ -17,12 +17,12 @@ public class AppointmentService {
 	public boolean addAppointment(Appoinment appointment) throws DAOException {
 		AppoinmentDAO appointmentDAO = new AppoinmentDAO();
 
-		return appointmentDAO.addAppointment(appointment.getPatientName(), appointment.getEmail(),
-				appointment.getAddress(), appointment.getProblem(), appointment.getBranch(), appointment.getDate());
+		return appointmentDAO.addAppointment(appointment.getPatientName(), appointment.getEmail()
+				, appointment.getProblem(), appointment.getBranch(), appointment.getDate(),appointment.getStatus());
 	}
 
 	public static boolean loginUser(String email, String password) throws ServiceException {
-		UserDAO userdao = new UserDAO();
+		UserDAO userdao = new UserDAO(); 
 
 		try {
 			UserValidator.validateEmail(email);

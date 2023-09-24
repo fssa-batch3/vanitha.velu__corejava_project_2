@@ -7,18 +7,19 @@ public class Appoinment {
 
     private String patientName;
     private String email;
-    private String address;
     private String problem;
     private String branch;
     private Date date;  
+    private String status;
+    private int id; 
 
-	public Appoinment(String patientName, String email, String address, String problem, String branch, Date date) {
+	public Appoinment(String patientName, String email, String problem, String branch, Date date, String status) {
         this.patientName = patientName;
-        this.email = email;
-        this.address = address; 
+        this.email = email; 
         this.problem = problem;
         this.branch = branch; 
         this.date = date;
+        this.status = status;
     }
 
 	public Appoinment(Appoinment appoinment) {
@@ -46,14 +47,7 @@ public class Appoinment {
         this.email = email;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
+    
     public String getProblem() {
         return problem;
     }
@@ -77,6 +71,23 @@ public class Appoinment {
 	public void setDate(Date date) {  
 		this.date = date;
 	}
+	
+	public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status; 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) { 
+        this.id = id; 
+    }
+
 
 }
 
