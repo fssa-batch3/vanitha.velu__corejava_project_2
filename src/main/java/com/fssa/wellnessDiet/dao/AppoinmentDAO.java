@@ -100,5 +100,32 @@ public List<Appoinment> readAppoinment(Appoinment appoinment) throws DAOExceptio
 }
 
 
+public Appoinment getAppointmentById(String emailId) throws DAOException {
+    final String QUERY = "SELECT patient_name, email, problem, branch, date_time, status FROM appointments WHERE email = ?";
+    
+    try (Connection connection = getConnection();
+         PreparedStatement pmt = connection.prepareStatement(QUERY)) {
+        
+        pmt.setString(1, emailId);
+        ResultSet rs = pmt.executeQuery();
+        
+        if (rs.next()) {
+            String patientName = rs.getString("patient_name");
+            String email = rs.getString("email"); 
+            String problem = rs.getString("problem");
+            String branch = rs.getString("branch");   
+            Date date = rs.getDate("date_time"); 
+            String status = rs.getString("status");
+            
+            return new Appoinment(patientName, email, problem, branch, date, status);
+        }
+    } catch (SQLException e) {
+        throw new DAOException("Error in getting Appointment by ID");
+    }
+    
+    return null; // If no appointment found with the given ID
+}
+
+
 
 }

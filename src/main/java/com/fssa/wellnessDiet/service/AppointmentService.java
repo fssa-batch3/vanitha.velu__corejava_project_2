@@ -55,5 +55,19 @@ public class AppointmentService {
 		}
 		return appoinment;
 	}
+	
+	public static Appoinment getAllAppointmentById(String email) throws ServiceException {
+
+		AppoinmentDAO appoinmentDAO = new AppoinmentDAO();
+	Appoinment appoinment = null;
+		try {
+			appoinment = appoinmentDAO.getAppointmentById(email);
+
+		} catch (DAOException e) {
+
+			e.printStackTrace();
+		}
+		return appoinment;
+	}
 
 }

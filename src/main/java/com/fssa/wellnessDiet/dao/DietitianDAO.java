@@ -188,9 +188,17 @@ public class DietitianDAO {
 				String DietitianAddress = rs.getString("DietitianAddress");
 				String DietitianQualification = rs.getString("DietitianQualification");  
 				int  Experience = rs.getInt("DietitianExperience");  
+				int id = rs.getInt("dietitian_id");
+				Dietitian dietitian =new Dietitian();
 				
-
-				dietitianList.add(new Dietitian(image_url,DietitianName,DietitianQualification,DietitianAddress,Experience));   
+				dietitian.setdietitian_id(id);
+				dietitian.setDietitianName(DietitianName);
+				dietitian.setDietitianQualification(DietitianQualification);
+				dietitian.setDietitianAddress(DietitianAddress);
+				dietitian.setDietitianExperience(Experience);
+				dietitian.setDietitianUrl(image_url);
+				
+				dietitianList.add(dietitian);   
 				System.out.println(dietitianList.toString());
 
 			}
@@ -205,7 +213,7 @@ public class DietitianDAO {
 		
 		public static Dietitian findDietitianById(int dietitian_id) throws DAOException { 
 			Dietitian dietitian = new Dietitian(); 
-			String insertQuery = "SELECT * FROM dietitian WHERE dietitian_id=?"; 
+			String insertQuery = "SELECT * FROM dietitians WHERE dietitian_id=?"; 
 			try (
 
 					Connection connection = getConnection();
@@ -213,7 +221,7 @@ public class DietitianDAO {
 				 pst.setInt(1, dietitian_id);  
 				ResultSet rs = pst.executeQuery();   
 				if (rs.next()) {
-					dietitian.setDietitianUrl(rs.getString("imageUrl")); 
+					dietitian.setDietitianUrl(rs.getString("image_url")); 
 					dietitian.setdietitian_id(rs.getInt("dietitian_id"));
 					dietitian.setDietitianName(rs.getString("DietitianName"));
 					dietitian.setDietitianAddress(rs.getString("DietitianAddress"));
@@ -223,6 +231,7 @@ public class DietitianDAO {
 				}
 				return dietitian; 
 			} catch (SQLException e) {
+				e.printStackTrace();
 				throw new DAOException("Cannot find dietitian by ID");
 
 			}
