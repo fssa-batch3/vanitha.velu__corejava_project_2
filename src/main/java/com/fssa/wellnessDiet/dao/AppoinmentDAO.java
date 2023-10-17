@@ -108,7 +108,7 @@ public Appoinment getAppointmentById(String emailId) throws DAOException {
         
         pmt.setString(1, emailId);
         ResultSet rs = pmt.executeQuery();
-        
+         
         if (rs.next()) {
             String patientName = rs.getString("patient_name");
             String email = rs.getString("email"); 
