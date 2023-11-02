@@ -8,10 +8,10 @@ import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
-import com.fssa.wellnessDiet.dao.AppoinmentDAO;
-import com.fssa.wellnessDiet.model.Appoinment;
-import com.fssa.wellnessDiet.service.AppointmentService;
-import com.fssa.wellnessDiet.service.exception.ServiceException; 
+import com.fssa.wellnessdiet.dao.AppoinmentDAO;
+import com.fssa.wellnessdiet.model.Appoinment;
+import com.fssa.wellnessdiet.service.AppointmentService;
+import com.fssa.wellnessdiet.service.exception.ServiceException; 
 
 class TestAddAppointment {
 

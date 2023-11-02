@@ -1,4 +1,4 @@
-package com.fssa.wellnessDiet.model;
+package com.fssa.wellnessdiet.model;
 
 import java.io.Serializable;
 
@@ -18,12 +18,12 @@ public class User implements Serializable {
 
 
  
- public User(String username,String email,String password,String type, int userId) { 
+ public User(String username,String email,String password,String type) { 
 	 this.username = username;
 	 this.password = password;
 	 this.email = email;
 	 this.type = type;
-	 this.UserId = userId;
+	  
  }
 
 	

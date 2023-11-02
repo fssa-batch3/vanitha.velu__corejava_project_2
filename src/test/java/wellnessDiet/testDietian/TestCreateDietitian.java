@@ -1,9 +1,10 @@
 package wellnessDiet.testDietian;
 import org.junit.jupiter.api.Test;
 
-import com.fssa.wellnessDiet.model.Dietitian;
-import com.fssa.wellnessDiet.service.DietitianService;
-import com.fssa.wellnessDiet.service.exception.ServiceException;
+
+import com.fssa.wellnessdiet.model.Dietitian;
+import com.fssa.wellnessdiet.service.DietitianService;
+import com.fssa.wellnessdiet.service.exception.ServiceException;
 
 public class TestCreateDietitian {
 

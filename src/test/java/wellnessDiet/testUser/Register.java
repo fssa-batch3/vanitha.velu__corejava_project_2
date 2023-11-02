@@ -1,6 +1,7 @@
 package wellnessDiet.testUser;
-import com.fssa.wellnessDiet.service.exception.ServiceException;
-import com.fssa.wellnessDiet.validation.exception.InvalidUserException;
+import com.fssa.wellnessdiet.service.exception.ServiceException;
+
+import com.fssa.wellnessdiet.validation.exception.InvalidUserException;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -10,16 +11,16 @@ import java.sql.SQLException;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import com.fssa.wellnessDiet.model.User;
+import com.fssa.wellnessdiet.model.User;
 
-import com.fssa.wellnessDiet.service.*;
+import com.fssa.wellnessdiet.service.*;
 
  
 public class Register {
 	Throwable exception; 
 	@Test
 	  void testRegisterSuccess() {  
-		User user1 = new User("durga","durga@gmail.com","vanith@123","dietitian", 0);
+		User user1 = new User("durga","durgda@gmail.com","vanith@123","dietitian");
 		UserService  UserService = new UserService();
 		try { 
 			assertTrue(UserService.registerUser(user1)); 
@@ -36,7 +37,7 @@ public class Register {
 	
 	 void testInvalidPassword() {
 		UserService userService = new UserService();
-		User user = new User("vanitha","vanitha@gmail.com","vani458","patient", 0);
+		User user = new User("vanitha","vanitha@gmail.com","vani458","patient");
 		
 		
 		try {
@@ -54,7 +55,7 @@ public class Register {
 	
 	 void testvalidPassword() {
 		UserService userService = new UserService();
-		User user = new User("vanitha","vanitha@gmail.com","vanitha@123","patient", 0);
+		User user = new User("vanitha","vanitha@gmail.com","vanitha@123","patient");
 		
 		
 		try {

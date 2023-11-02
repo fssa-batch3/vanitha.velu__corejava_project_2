@@ -1,14 +1,14 @@
-package com.fssa.wellnessDiet.validation;
-import com.fssa.wellnessDiet.model.*;
+package com.fssa.wellnessdiet.validation;
+import com.fssa.wellnessdiet.model.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.regex.Pattern;
 
-import com.fssa.wellnessDiet.dao.AppoinmentDAO;
-import com.fssa.wellnessDiet.dao.exception.DAOException;
-import com.fssa.wellnessDiet.model.Appoinment;
+import com.fssa.wellnessdiet.model.Appoinment;
+import com.fssa.wellnessdiet.dao.AppoinmentDAO;
+import com.fssa.wellnessdiet.dao.exception.DAOException;
 
 public class AppointmentValidator {
 	

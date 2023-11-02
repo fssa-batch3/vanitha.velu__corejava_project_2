@@ -1,20 +1,17 @@
 package wellnessDiet.testAppointment;
+import com.fssa.wellnessdiet.*;
+import com.fssa.wellnessdiet.dao.AppoinmentDAO;
+import com.fssa.wellnessdiet.dao.exception.DAOException;
+import com.fssa.wellnessdiet.model.Appoinment;
+import com.fssa.wellnessdiet.service.AppointmentService;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import com.fssa.wellnessDiet.service.*;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import com.fssa.wellnessDiet.dao.*;
-import com.fssa.wellnessDiet.dao.exception.DAOException;
-import com.fssa.wellnessDiet.model.Appoinment;
-import com.fssa.wellnessDiet.model.Dietitian;
-import com.fssa.wellnessDiet.service.AppointmentService;
 
 public class TestGetAllAppointment {
 

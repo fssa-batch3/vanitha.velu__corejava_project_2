@@ -1,4 +1,4 @@
-package com.fssa.wellnessDiet.dao.exception;
+package com.fssa.wellnessdiet.dao.exception;
 
 public class DAOException extends Exception {
 	

@@ -1,4 +1,4 @@
-package com.fssa.wellnessDiet.dao;
+package com.fssa.wellnessdiet.dao; 
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -6,13 +6,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fssa.wellnessDiet.dao.exception.DAOException;
-import com.fssa.wellnessDiet.model.Appoinment;
-import com.fssa.wellnessDiet.model.Dietitian;
+import com.fssa.wellnessdiet.dao.exception.DAOException;
+import com.fssa.wellnessdiet.model.Appoinment;
 
 public class AppoinmentDAO {
 
@@ -23,7 +21,7 @@ public class AppoinmentDAO {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/web_project", "root",
-						"243@Vanitha");
+						"243@vanitha");
 			} catch (SQLException | ClassNotFoundException e) {
 			
 				e.printStackTrace();
@@ -57,12 +55,12 @@ public List<Appoinment> getAllAppointment() throws DAOException {
 	// Create an empty list to store dietitians 
 	List<Appoinment> appointmentList = new ArrayList<>();
 
-	final String QUERY = "SELECT patient_name, email, problem, branch, date_time, status FROM appointments";
+	final String QUERY = "SELECT patient_name, email, problem, branch, date_time, status , id FROM appointments";
 	// Start a try block with a prepared statement for selecting all dietitians
 	try (Connection connection = getConnection();
 			PreparedStatement pmt = connection.prepareStatement(QUERY);
-			ResultSet rs = pmt.executeQuery()) {
-		
+			) {
+		ResultSet rs = pmt.executeQuery();
 		// Iterate through the result set and extract dietitian information
 		while (rs.next()) {
 			String patientName = rs.getString("patient_name");
@@ -71,10 +69,9 @@ public List<Appoinment> getAllAppointment() throws DAOException {
 			String branch = rs.getString("branch");   
 			Date  date = rs.getDate("date_time"); 
 			String status = rs.getString("status");
-			 
-
-			appointmentList.add(new Appoinment(patientName,email,problem,branch,date,status));     
-			System.out.println(appointmentList.toString());  
+			int id = rs.getInt("id");
+			appointmentList.add(new Appoinment(patientName,email,problem,branch,date,status,id));     
+			System.out.println(appointmentList);  
 
 		}
 		// Return the list of dietitians 

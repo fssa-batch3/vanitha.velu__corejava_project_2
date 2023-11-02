@@ -1,4 +1,4 @@
-package com.fssa.wellnessDiet.model;
+package com.fssa.wellnessdiet.model;
 
 public class Dietitian {
 	private String DietitianName;

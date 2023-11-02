@@ -1,15 +1,13 @@
-package com.fssa.wellnessDiet.service;
+package com.fssa.wellnessdiet.service;
 
 import java.util.List;
 
-import com.fssa.wellnessDiet.dao.*;
-import com.fssa.wellnessDiet.model.*;
-import com.fssa.wellnessDiet.dao.UserDAO;
-import com.fssa.wellnessDiet.dao.exception.DAOException;
-import com.fssa.wellnessDiet.model.User;
-import com.fssa.wellnessDiet.service.exception.ServiceException;
-import com.fssa.wellnessDiet.validation.UserValidator;
-import com.fssa.wellnessDiet.validation.exception.InvalidUserException;
+import com.fssa.wellnessdiet.service.exception.ServiceException;
+import com.fssa.wellnessdiet.dao.UserDAO;
+import com.fssa.wellnessdiet.dao.exception.DAOException;
+import com.fssa.wellnessdiet.model.User;
+import com.fssa.wellnessdiet.validation.UserValidator;
+import com.fssa.wellnessdiet.validation.exception.InvalidUserException;
 
 public class UserService {
 	

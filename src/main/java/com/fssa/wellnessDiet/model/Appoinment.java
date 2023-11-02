@@ -1,4 +1,4 @@
-package com.fssa.wellnessDiet.model;
+package com.fssa.wellnessdiet.model;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -26,9 +26,16 @@ public class Appoinment {
 		return;
 	}
 
-	public Appoinment(String patientName2, String email2, String address2, String address3, String problem2,
-			String branch2, String dateTime) {
-		
+	public Appoinment(String patientName2, String email2, String problem, String branch, Date date2,
+			String status, int id) {
+		this.patientName = patientName2;
+        this.email = email2; 
+        this.problem = problem;
+        this.branch = branch; 
+        this.date = date2;
+        this.status = status;
+        this.id = id;
+        
 	} 
 
 	public String getPatientName() { 

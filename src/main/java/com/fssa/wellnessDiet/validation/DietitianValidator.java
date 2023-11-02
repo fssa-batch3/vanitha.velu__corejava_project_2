@@ -1,9 +1,9 @@
-package com.fssa.wellnessDiet.validation;
+package com.fssa.wellnessdiet.validation;
 
 import java.util.regex.Pattern;
 
-import com.fssa.wellnessDiet.model.Dietitian;
-import com.fssa.wellnessDiet.validation.exception.InvalidDietitianException;
+import com.fssa.wellnessdiet.model.Dietitian;
+import com.fssa.wellnessdiet.validation.exception.InvalidDietitianException;
 
 public class DietitianValidator {
 	

@@ -1,13 +1,14 @@
 package wellnessDiet.testDietian;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import com.fssa.wellnessDiet.model.Dietitian;
-import com.fssa.wellnessDiet.service.DietitianService;
-import com.fssa.wellnessDiet.service.exception.*;
+import com.fssa.wellnessdiet.model.Dietitian;
+import com.fssa.wellnessdiet.service.DietitianService;
+import com.fssa.wellnessdiet.service.exception.*;
 
 public class TestDeleteDietitian {
 	

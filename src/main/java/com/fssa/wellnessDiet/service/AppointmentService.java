@@ -1,16 +1,14 @@
-package com.fssa.wellnessDiet.service;
-
-import com.fssa.wellnessDiet.*;
+package com.fssa.wellnessdiet.service;
 
 import java.util.List;
-import java.util.function.BooleanSupplier;
-import com.fssa.wellnessDiet.dao.*;
-import com.fssa.wellnessDiet.dao.exception.DAOException;
-import com.fssa.wellnessDiet.service.*;
-import com.fssa.wellnessDiet.service.exception.ServiceException;
-import com.fssa.wellnessDiet.model.*;
-import com.fssa.wellnessDiet.validation.*;
-import com.fssa.wellnessDiet.validation.exception.InvalidDietitianException;
+
+import com.fssa.wellnessdiet.service.exception.ServiceException;
+import com.fssa.wellnessdiet.dao.AppoinmentDAO;
+import com.fssa.wellnessdiet.dao.UserDAO; 
+import com.fssa.wellnessdiet.dao.exception.DAOException;
+import com.fssa.wellnessdiet.model.Appoinment;
+import com.fssa.wellnessdiet.model.User;
+import com.fssa.wellnessdiet.validation.UserValidator;
 
 public class AppointmentService {
 
@@ -61,7 +59,7 @@ public class AppointmentService {
 		AppoinmentDAO appoinmentDAO = new AppoinmentDAO();
 	Appoinment appoinment = null;
 		try {
-			appoinment = appoinmentDAO.getAppointmentById(email);
+			appoinment = appoinmentDAO.getAppointmentById(email); 
 
 		} catch (DAOException e) {
 

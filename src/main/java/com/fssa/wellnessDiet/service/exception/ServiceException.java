@@ -1,4 +1,4 @@
-package com.fssa.wellnessDiet.service.exception;
+package com.fssa.wellnessdiet.service.exception;
 
 public class ServiceException extends Exception {
 	

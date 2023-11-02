@@ -1,4 +1,4 @@
-package com.fssa.wellnessDiet.dao;
+package com.fssa.wellnessdiet.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,10 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fssa.wellnessDiet.dao.exception.DAOException;
-import com.fssa.wellnessDiet.model.Dietitian;
-import com.fssa.wellnessDiet.model.User;
-import com.fssa.wellnessDiet.service.exception.ServiceException;
+import com.fssa.wellnessdiet.dao.exception.DAOException;
+import com.fssa.wellnessdiet.model.Dietitian;
 
 public class DietitianDAO {
 
@@ -25,7 +23,7 @@ public class DietitianDAO {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/web_project", "root",
-					"243@Vanitha");
+					"243@vanitha");
 		} catch (SQLException | ClassNotFoundException e) {
 		
 			e.printStackTrace();

@@ -1,16 +1,16 @@
-package com.fssa.wellnessDiet.dao;
+package com.fssa.wellnessdiet.dao;
 
 import java.sql.Connection;
-import java.util.ArrayList;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-import com.fssa.wellnessDiet.dao.*;
-import com.fssa.wellnessDiet.model.User;
-import com.fssa.wellnessDiet.validation.exception.InvalidUserException;
-import com.fssa.wellnessDiet.dao.exception.*;
+
+import com.fssa.wellnessdiet.dao.exception.DAOException;
+import com.fssa.wellnessdiet.model.User;
+import com.fssa.wellnessdiet.validation.exception.InvalidUserException;
 
 public class UserDAO {
 
@@ -26,7 +26,7 @@ public class UserDAO {
 
 		dbUrl = "jdbc:mysql://localhost:3306/web_project"; 
 		dbUser = "root";
-		dbPassword = "243@Vanitha";
+		dbPassword = "243@vanitha";
 
 		Connection connect = null;
 
@@ -52,7 +52,7 @@ public class UserDAO {
 	public boolean insertUser(User user) throws DAOException {
 		String insertQuery = "INSERT INTO user (username , email , password, type) VALUES (?,?,?,?)";
 		try (Connection connection = getConnection();
-				PreparedStatement pst = connection.prepareStatement(insertQuery);) {
+				PreparedStatement pst = connection.prepareStatement(insertQuery)) {
 			pst.setString(1, user.getUsername());
 			pst.setString(2, user.getEmail());
 			pst.setString(3, user.getPassword());
@@ -60,6 +60,7 @@ public class UserDAO {
 			int rows = pst.executeUpdate();
 			return (rows >= 1);
 		} catch (SQLException e) {
+			e.printStackTrace();
 			throw new DAOException("Invalid details for register");
 		}
 	}
@@ -168,7 +169,7 @@ public class UserDAO {
 					User user1 = new User();
 					user1.setUserId(userId);
 
-					user.add(new User(username, email, password,type,userId));  
+					user.add(new User(username, email, password,type));    
 
 				}
 				// Return the list of users

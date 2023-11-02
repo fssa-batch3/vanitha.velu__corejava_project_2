@@ -1,7 +1,8 @@
 package wellnessDiet.testUser;
 
-import com.fssa.wellnessDiet.service.*;
-import com.fssa.wellnessDiet.service.exception.ServiceException;
+import com.fssa.wellnessdiet.service.*;
+
+import com.fssa.wellnessdiet.service.exception.ServiceException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;

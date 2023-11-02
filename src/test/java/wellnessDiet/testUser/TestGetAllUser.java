@@ -1,6 +1,7 @@
 package wellnessDiet.testUser;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -8,9 +9,9 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import com.fssa.wellnessDiet.service.exception.ServiceException;
-import com.fssa.wellnessDiet.model.User;
-import com.fssa.wellnessDiet.service.*;
+import com.fssa.wellnessdiet.service.exception.ServiceException;
+import com.fssa.wellnessdiet.model.User;
+import com.fssa.wellnessdiet.service.*;
 
 public class TestGetAllUser {
 
@@ -20,7 +21,7 @@ public class TestGetAllUser {
 		UserService service = new UserService(); 
 		try {
 			assertTrue(service.registerUser(new User("vanitha", "vanitha.velu@fsaa.freshworks.com",
-					"24@vanitha","patient", 0)));
+					"24@vanitha","patient")));
 			List<User> list = UserService.getAllUser();
 			assertNotNull(list);
 

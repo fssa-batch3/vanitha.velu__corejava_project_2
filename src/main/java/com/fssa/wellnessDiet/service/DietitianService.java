@@ -1,13 +1,13 @@
-package com.fssa.wellnessDiet.service;
+package com.fssa.wellnessdiet.service;
 
 import java.util.List;
 
-import com.fssa.wellnessDiet.dao.DietitianDAO;
-import com.fssa.wellnessDiet.dao.exception.DAOException;
-import com.fssa.wellnessDiet.model.Dietitian;
-import com.fssa.wellnessDiet.validation.DietitianValidator;
-import com.fssa.wellnessDiet.validation.exception.InvalidDietitianException;
-import com.fssa.wellnessDiet.service.exception.ServiceException;
+import com.fssa.wellnessdiet.service.exception.ServiceException;
+import com.fssa.wellnessdiet.dao.DietitianDAO;
+import com.fssa.wellnessdiet.dao.exception.DAOException;
+import com.fssa.wellnessdiet.model.Dietitian;
+import com.fssa.wellnessdiet.validation.DietitianValidator;
+import com.fssa.wellnessdiet.validation.exception.InvalidDietitianException;
 
 public class DietitianService {
 
@@ -18,23 +18,21 @@ public class DietitianService {
 	 * @return true if the dietitian is successfully added, false otherwise.
 	 * @throws ServiceException If a service-level error occurs.
 	 */
-	
-	public boolean addDietitian(Dietitian dietitian) throws ServiceException { 
+
+	public boolean addDietitian(Dietitian dietitian) throws ServiceException {
 		DietitianDAO dietitianDao = new DietitianDAO();
 
 		try {
-			if (dietitianDao.AddDietitian(dietitian)) {  
+			if (dietitianDao.AddDietitian(dietitian)) {
 				return true;
 			} else {
 				return false;
 			}
-		} catch (DAOException e) { 
-			throw new ServiceException(e);  
+		} catch (DAOException e) {
+			throw new ServiceException(e);
 		}
 	}
 
-	
-	
 	/**
 	 * Updates an existing dietitian's information in the database.
 	 *
@@ -58,7 +56,6 @@ public class DietitianService {
 
 	}
 
-	
 	/**
 	 * Deletes a dietitian from the database.
 	 *
@@ -66,7 +63,7 @@ public class DietitianService {
 	 * @return true if the dietitian is successfully deleted, false otherwise.
 	 * @throws ServiceException If a service-level error occurs.
 	 */
-	
+
 	public static boolean deleteDietitian(Dietitian dietitian) throws ServiceException {
 		DietitianDAO dietitianDAO = new DietitianDAO();
 
@@ -83,17 +80,18 @@ public class DietitianService {
 
 	}
 
-
 	/**
-	 * Reads dietitian information from the database based on the provided Dietitian object.
+	 * Reads dietitian information from the database based on the provided Dietitian
+	 * object.
 	 *
 	 * @param dietitian The Dietitian object with criteria for reading.
 	 * @return A List of Dietitian objects that match the criteria.
-	 * @throws ServiceException If a service-level error occurs, including validation failures.
+	 * @throws ServiceException If a service-level error occurs, including
+	 *                          validation failures.
 	 */
-	
+
 	@SuppressWarnings("static-access")
-	public static List<Dietitian>  readDietitian(Dietitian dietitian) throws ServiceException {
+	public static List<Dietitian> readDietitian(Dietitian dietitian) throws ServiceException {
 		List<Dietitian> dietitians = null;
 		try {
 			DietitianDAO dietitianDAO = new DietitianDAO();
@@ -104,70 +102,68 @@ public class DietitianService {
 					throw new ServiceException("Failed to get Dieitian");
 				}
 			}
-			
-		} catch (DAOException | InvalidDietitianException e) {   
+
+		} catch (DAOException | InvalidDietitianException e) {
 			throw new ServiceException(e);
 		}
 		return dietitians;
 	}
-	
-	
-	
+
 	/**
 	 * Retrieves a list of all dietitians from the database.
 	 *
-	 * @return A List of Dietitian objects representing all dietitians in the database.
+	 * @return A List of Dietitian objects representing all dietitians in the
+	 *         database.
 	 * @throws ServiceException If a service-level error occurs.
 	 */
-	
+
 	public List<Dietitian> getAllDietitian() throws ServiceException {
 
 		DietitianDAO dietitianDAO = new DietitianDAO();
 		List<Dietitian> dietitian = null;
 		try {
 			dietitian = dietitianDAO.getAllDietitians();
-			
+
 		} catch (DAOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return dietitian; 
+		return dietitian;
 	}
 
+	public  Dietitian findDietitianById(int dietitian_id) throws ServiceException {
+		try {
+			DietitianDAO DietitianDAO = new DietitianDAO();
+			Dietitian Dietitian = DietitianDAO.findDietitianById(dietitian_id);
 
-
-	public Dietitian findDietitianById(int dietitian_id) throws ServiceException {
-	    try {
-	    	DietitianDAO DietitianDAO = new DietitianDAO();
-	    	Dietitian Dietitian = DietitianDAO.findDietitianById(dietitian_id);  
-
-	        if (Dietitian != null) {  
-	            return Dietitian;
-	        } else { 
-	            System.err.println("Dietitian not found");
-	            return null;
-	        }
-	    } catch (DAOException e) {
-	        throw new ServiceException(e);
-	    }
-	}
-	
-	
-	public Dietitian findDietitianByUserId(int userId) throws ServiceException {
-	    try {
-	    	DietitianDAO DietitianDAO = new DietitianDAO();
-	    	Dietitian Dietitian = DietitianDAO.findDietitianByUserId(userId);  
-
-	        if (Dietitian != null) {  
-	            return Dietitian;
-	        } else { 
-	            System.err.println("Dietitian not found");
-	            return null;
-	        }
-	    } catch (DAOException e) {
-	        throw new ServiceException(e);
-	    }
+			if (Dietitian != null) {
+				return Dietitian;
+			} else {
+				System.err.println("Dietitian not found");
+				return null;
+			}
+		} catch (DAOException e) {
+			throw new ServiceException(e);
+		}
 	}
 
+	public static Dietitian findDietitianByUserId(int userId) throws ServiceException {
+		try {
+			DietitianDAO DietitianDAO = new DietitianDAO();
+			Dietitian Dietitian = DietitianDAO.findDietitianByUserId(userId);
 
+			if (Dietitian != null) {
+				return Dietitian;
+			} else {
+				System.err.println("Dietitian not found");
+				return null;
+			}
+		} catch (DAOException e) {
+			throw new ServiceException(e);
+		}
+	}
+
+	public static void main(String[] args) {
+		
+           	}
 }

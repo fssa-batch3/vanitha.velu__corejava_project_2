@@ -1,6 +1,7 @@
 package wellnessDiet.testDietian;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -9,11 +10,11 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import com.fssa.wellnessDiet.dao.DietitianDAO;
-import com.fssa.wellnessDiet.dao.exception.DAOException;
-import com.fssa.wellnessDiet.model.Dietitian;
-import com.fssa.wellnessDiet.service.DietitianService;
-import com.fssa.wellnessDiet.service.exception.ServiceException;
+import com.fssa.wellnessdiet.model.Dietitian;
+import com.fssa.wellnessdiet.service.DietitianService;
+import com.fssa.wellnessdiet.service.exception.ServiceException;
+import com.fssa.wellnessdiet.dao.DietitianDAO;
+import com.fssa.wellnessdiet.dao.exception.DAOException;
 
 public class TestGetAllDietitian { 
 

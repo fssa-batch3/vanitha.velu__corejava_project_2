@@ -1,4 +1,4 @@
-package com.fssa.wellnessDiet.validation.exception;
+package com.fssa.wellnessdiet.validation.exception; 
 
 public class InvalidDietitianException  extends Exception {
 	
